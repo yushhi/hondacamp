@@ -8,7 +8,7 @@
         <a href="#" id="night-mode" class="btn-night-mode" data-tippy-placement="left" title="Switch to dark mode"></a>
     </div>
     <div class="border-b border-gray-20 flex justify-between items-center p-3 pl-5 relative uk-hidden@s">
-        <h3 class="text-xl"> Navigation </h3>
+        <h3 class="text-xl">Navigation</h3>
         <span class="btn-mobile" uk-toggle="target: #wrapper ; cls: sidebar-active"></span>
     </div>
     <div class="sidebar_inner" data-simplebar>
