@@ -1,650 +1,1778 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head -->
+    
+<!-- Mirrored from offsetcode.com/themes/messenger/2.1.0/chat-group.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Sep 2021 01:41:17 GMT -->
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, shrink-to-fit=no, viewport-fit=cover">
+        <title>Grup Chat - {{ $post->title }}</title>
 
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="assets/img/favicon/favicon.ico" type="image/x-icon">
 
-    <!DOCTYPE html>
+        <!-- Font -->
+        <link rel="preconnect" href="https://fonts.gstatic.com/">
+    	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700" rel="stylesheet">
 
-    <html lang="en-US">
+        <!-- Template CSS -->
+        <link rel="stylesheet" href="{{ url('chat/assets/css/template.bundle.css') }}">
+        <link rel="stylesheet" href="{{ url('chat/assets/css/template.dark.bundle.css') }}" media="(prefers-color-scheme: dark)">
+    </head>
+
+    <body>
+        <!-- Layout -->
+        <div class="layout overflow-hidden">
+            <!-- Navigation -->
+            <nav class="navigation d-flex flex-column text-center navbar navbar-light hide-scrollbar" style="width: 200px; background-color: rgb(240, 240, 240)">
+                <!-- Brand -->
+                <a href="/" title="Honda Camp" class="d-none d-xl-block mb-6">
+                    <img loading="lazy" src="/images/logohondacamp.jpg" class="avatar group-4-avatar avatar-200 photo" width="200" height="200" style="background-color: white" alt="Group logo of Backpakers Club">
+
+                </a>
+
+                <!-- Nav items -->
+                <ul class="d-flex nav navbar-nav flex-row flex-xl-column flex-grow-1 justify-content-between justify-content-xl-center align-items-center w-100 py-4 py-lg-2 px-lg-3" role="tablist">
+                    <!-- Invisible item to center nav vertically -->
+                    <li class="nav-item d-none d-xl-block invisible flex-xl-grow-1">
+                        <a class="nav-link py-0 py-lg-8" href="#" title="">
+                            <div class="icon icon-xl">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </div>
+                        </a>
+                    </li>
+
+                    {{-- <!-- New chat -->
+                    <li class="nav-item">
+                        <a class="nav-link py-0 py-lg-8" id="tab-create-chat" href="/artikel" title="Artikel">
+                            <div class="icon icon-xl">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-3"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                            </div>
+                        </a>
+                    </li> --}}
+
+                    <!-- Friends -->
+                    <li class="nav-item">
+                        <a class="nav-link py-0 py-lg-8" id="tab-friends" href="/group" title="Group">
+                            <div class="icon icon-xl">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            </div>
+                        </a>
+                    </li>
+
+                    {{-- <!-- Chats -->
+                    <li class="nav-item">
+                        <a class="nav-link active py-0 py-lg-8" id="tab-chats" href="#tab-content-chats" title="Chats">
+                            <div class="icon icon-xl icon-badged">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                                <div class="badge badge-circle bg-primary">
+                                    <span>4</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li> --}}
+
+                    {{-- <!-- Notification -->
+                    <li class="nav-item">
+                        <a class="nav-link py-0 py-lg-8" id="tab-notifications" href="#tab-content-notifications" title="Notifications">
+                            <div class="icon icon-xl">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                            </div>
+                        </a>
+                    </li> --}}
+
+                    <!-- Support -->
+                    <li class="nav-item d-none d-xl-block flex-xl-grow-1">
+                        <a class="nav-link py-0 py-lg-8" id="tab-support" href="/" title="Artikel">
+                            <div class="icon icon-xl">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layout"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                            </div>
+                        </a>
+                    </li>
+
+                    {{-- <!-- Settings -->
+                    <li class="nav-item d-none d-xl-block">
+                        <a class="nav-link py-0 py-lg-8" id="tab-settings" href="#tab-content-settings" title="Settings">
+                            <div class="icon icon-xl">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                            </div>
+                        </a>
+                    </li> --}}
+
+                    <!-- Profile -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link p-0 mt-lg-2" data-bs-toggle="modal" data-bs-target="#modal-profile">
+                            <div class="avatar mx-auto d-none d-xl-block">
+                                <img class="avatar-img" src="/images/{{Auth::user()->avatar}}" alt="">
+                            </div>
+                            <div class="avatar avatar-online avatar-xs d-xl-none">
+                                <img class="avatar-img" src="/images/{{Auth::user()->avatar}}" alt="">
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Navigation -->
 
         
-    <!-- Mirrored from mythemestore.com/beehive-preview/activity/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 23 Aug 2021 03:29:34 GMT -->
-    <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
-    <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
-            <link rel="profile" href="http://gmpg.org/xfn/11">
 
-            
-        <link rel="alternate" type="application/rss+xml" title="Komunitas DPS" href="feed/index.html" />
+            <!-- Chat -->
+            <main class="main is-visible" data-dropzone-area="">
+                <div style="padding-bottom: 20px; background-color: rgb(240, 240, 240)">
+                    <img src="/images/logohondacamp.jpg" alt="" style="width: 100%;height: 180px;">
+                </div>
+                <div class="container h-100" style="max-width: 1250px">
 
-            <title>Komunitas &#8211; DPS</title>
-    <link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
-    <link rel='dns-prefetch' href='http://s.w.org/' />
-    <link rel="alternate" type="application/rss+xml" title="Beehive Preview &raquo; Feed" href="https://mythemestore.com/beehive-preview/feed/" />
-    <link rel="alternate" type="application/rss+xml" title="Beehive Preview &raquo; Comments Feed" href="https://mythemestore.com/beehive-preview/comments/feed/" />
-            <script type="text/javascript">
-                window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/mythemestore.com\/beehive-preview\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.4.6"}};
-                /*! This file is auto-generated */
-                !function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
-            </script>
-            <style type="text/css">
-    img.wp-smiley,
-    img.emoji {
-        display: inline !important;
-        border: none !important;
-        box-shadow: none !important;
-        height: 1em !important;
-        width: 1em !important;
-        margin: 0 .07em !important;
-        vertical-align: -0.1em !important;
-        background: none !important;
-        padding: 0 !important;
-    }
-    </style>
-        <link rel='stylesheet' id='wp-block-library-css'  href='../wp-includes/css/dist/block-library/style.min03e2.css?ver=5.4.6' type='text/css' media='all' />
-    <link rel='stylesheet' id='bp-login-form-block-css'  href='../wp-content/plugins/buddypress/bp-core/css/blocks/login-form.min245d.css?ver=9.0.0' type='text/css' media='all' />
-    <link rel='stylesheet' id='bp-member-block-css'  href='../wp-content/plugins/buddypress/bp-members/css/blocks/member.min245d.css?ver=9.0.0' type='text/css' media='all' />
-    <link rel='stylesheet' id='bp-members-block-css'  href='../wp-content/plugins/buddypress/bp-members/css/blocks/members.min245d.css?ver=9.0.0' type='text/css' media='all' />
-    <link rel='stylesheet' id='bp-dynamic-members-block-css'  href='../wp-content/plugins/buddypress/bp-members/css/blocks/dynamic-members.min245d.css?ver=9.0.0' type='text/css' media='all' />
-    <link rel='stylesheet' id='bp-latest-activities-block-css'  href='../wp-content/plugins/buddypress/bp-activity/css/blocks/latest-activities.min245d.css?ver=9.0.0' type='text/css' media='all' />
-    <link rel='stylesheet' id='bp-friends-block-css'  href='../wp-content/plugins/buddypress/bp-friends/css/blocks/friends.min245d.css?ver=9.0.0' type='text/css' media='all' />
-    <link rel='stylesheet' id='bp-group-block-css'  href='../wp-content/plugins/buddypress/bp-groups/css/blocks/group.min245d.css?ver=9.0.0' type='text/css' media='all' />
-    <link rel='stylesheet' id='bp-groups-block-css'  href='../wp-content/plugins/buddypress/bp-groups/css/blocks/groups.min245d.css?ver=9.0.0' type='text/css' media='all' />
-    <link rel='stylesheet' id='bp-dynamic-groups-block-css'  href='../wp-content/plugins/buddypress/bp-groups/css/blocks/dynamic-groups.min245d.css?ver=9.0.0' type='text/css' media='all' />
-    <link rel='stylesheet' id='bp-sitewide-notices-block-css'  href='../wp-content/plugins/buddypress/bp-messages/css/blocks/sitewide-notices.min245d.css?ver=9.0.0' type='text/css' media='all' />
-    <link rel='stylesheet' id='wc-block-vendors-style-css'  href='../wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/vendors-style7e2e.css?ver=3.8.1' type='text/css' media='all' />
-    <link rel='stylesheet' id='wc-block-style-css'  href='../wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/style7e2e.css?ver=3.8.1' type='text/css' media='all' />
-    <link rel='stylesheet' id='bbp-default-css'  href='../wp-content/themes/beehive/bbpress/css/bbpress.mind7ad.css?ver=2.6.6' type='text/css' media='all' />
-    <link rel='stylesheet' id='buddycommerce-core-css'  href='../wp-content/plugins/buddycommerce/templates/buddycommerce/default/assets/buddycommerce-core4bf4.css?ver=1.0.3' type='text/css' media='all' />
-    <link rel='stylesheet' id='bp-mentions-css-css'  href='../wp-content/plugins/buddypress/bp-activity/css/mentions.min245d.css?ver=9.0.0' type='text/css' media='all' />
-    <link rel='stylesheet' id='dashicons-css'  href='../wp-includes/css/dashicons.min03e2.css?ver=5.4.6' type='text/css' media='all' />
-    <link rel='stylesheet' id='bp-nouveau-css'  href='../wp-content/themes/beehive/buddypress/css/buddypress.min245d.css?ver=9.0.0' type='text/css' media='screen' />
-    <link rel='stylesheet' id='contact-form-7-css'  href='../wp-content/plugins/contact-form-7/includes/css/styles9dff.css?ver=5.3.2' type='text/css' media='all' />
-    <style id='woocommerce-inline-inline-css' type='text/css'>
-    .woocommerce form .form-row .required { visibility: visible; }
-    </style>
-    <link rel='stylesheet' id='beehive-fonts-css'  href='https://fonts.googleapis.com/css?family=Nunito+Sans%3A300%2C400%2C600%2C700%2C300italic%2C400italic%2C600italic%2C700italic%7CQuicksand%3A700&amp;ver=1.4.2#038;subset' type='text/css' media='all' />
-    <link rel='stylesheet' id='bootstrap-css'  href='../wp-content/themes/beehive/assets/css/bootstrap.min1159.css?ver=1.4.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='ionicons-css'  href='../wp-content/themes/beehive/assets/css/ionicons.min1159.css?ver=1.4.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='unicons-css'  href='../wp-content/themes/beehive/assets/css/unicons.min1159.css?ver=1.4.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='mscrollbar-css'  href='../wp-content/themes/beehive/assets/css/mscrollbar.min1159.css?ver=1.4.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='elementor-frontend-legacy-css'  href='../wp-content/plugins/elementor/assets/css/frontend-legacy.minc3cf.css?ver=3.0.15' type='text/css' media='all' />
-    <link rel='stylesheet' id='elementor-frontend-css'  href='../wp-content/plugins/elementor/assets/css/frontend.minc3cf.css?ver=3.0.15' type='text/css' media='all' />
-    <link rel='stylesheet' id='elementor-icons-css'  href='../wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min74e5.css?ver=5.9.1' type='text/css' media='all' />
-    <link rel='stylesheet' id='swiper-css'  href='../wp-content/themes/beehive/assets/css/swiper.min1159.css?ver=1.4.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='animate-css'  href='../wp-content/themes/beehive/assets/css/animate.min1159.css?ver=1.4.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='hiraku-css'  href='../wp-content/themes/beehive/assets/css/hiraku.min1159.css?ver=1.4.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='beehive-job-manager-css'  href='../wp-content/themes/beehive/job_manager/assets/css/job-manager.min1159.css?ver=1.4.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='beehive-media-css'  href='../wp-content/themes/beehive/rtmedia/assets/css/rtmedia.min1159.css?ver=1.4.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='beehive-adverts-css'  href='../wp-content/themes/beehive/wpadverts/assets/css/adverts-frontend.min1159.css?ver=1.4.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='beehive-woocommerce-css'  href='../wp-content/themes/beehive/woocommerce/assets/css/woocommerce.min1159.css?ver=1.4.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='beehive-woocommerce-layout-css'  href='../wp-content/themes/beehive/woocommerce/assets/css/woocommerce-layout.min1159.css?ver=1.4.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='beehive-css'  href='../wp-content/themes/beehive/assets/css/beehive.min1159.css?ver=1.4.2' type='text/css' media='all' />
-    <link rel='stylesheet' id='beehive-child-css'  href='../wp-content/themes/beehive-child/style03e2.css?ver=5.4.6' type='text/css' media='all' />
-    <link rel='stylesheet' id='rt-mediaelement-css'  href='../wp-content/plugins/buddypress-media/lib/media-element/mediaelementplayer-legacy.min13f7.css?ver=4.6.6' type='text/css' media='all' />
-    <link rel='stylesheet' id='rt-mediaelement-wp-css'  href='../wp-content/plugins/buddypress-media/lib/media-element/wp-mediaelement.min13f7.css?ver=4.6.6' type='text/css' media='all' />
-    <link rel='stylesheet' id='rtmedia-upload-terms-main-css'  href='../wp-content/plugins/buddypress-media/app/assets/css/rtm-upload-terms.min13f7.css?ver=4.6.6' type='text/css' media='all' />
-    <link rel='stylesheet' id='beehive-dynamic-css'  href='../wp-content/uploads/beehive-styles/dynamic-styles1159.css?ver=1.4.2' type='text/css' media='all' />
-    <script type='text/javascript' src='../wp-includes/js/plupload/moxie.mine34c.js?ver=1.3.5'></script>
-    <script type='text/javascript' src='../wp-includes/js/plupload/plupload.min6c17.js?ver=2.1.9'></script>
-    <script type='text/javascript' src='../wp-includes/js/jquery/jquery4a5f.js?ver=1.12.4-wp'></script>
-    <script type='text/javascript' src='../wp-includes/js/jquery/jquery-migrate.min330a.js?ver=1.4.1'></script>
-    <script type='text/javascript' src='../wp-content/plugins/buddypress/bp-core/js/widget-members.min245d.js?ver=9.0.0'></script>
-    <script type='text/javascript' src='../wp-content/plugins/buddypress/bp-core/js/jquery-query.min245d.js?ver=9.0.0'></script>
-    <script type='text/javascript' src='../wp-content/plugins/buddypress/bp-core/js/vendor/jquery-cookie.min245d.js?ver=9.0.0'></script>
-    <script type='text/javascript' src='../wp-content/plugins/buddypress/bp-core/js/vendor/jquery-scroll-to.min245d.js?ver=9.0.0'></script>
-    <link rel='https://api.w.org/' href='https://mythemestore.com/beehive-preview/wp-json/' />
-    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://mythemestore.com/beehive-preview/xmlrpc.php?rsd" />
-    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://mythemestore.com/beehive-preview/wp-includes/wlwmanifest.xml" /> 
-    <meta name="generator" content="WordPress 5.4.6" />
-    <meta name="generator" content="WooCommerce 4.8.0" />
-    <link rel='shortlink' href='https://mythemestore.com/beehive-preview/?p=370' />
-    <link rel="alternate" type="application/json+oembed" href="https://mythemestore.com/beehive-preview/wp-json/oembed/1.0/embed?url" />
-    <link rel="alternate" type="text/xml+oembed" href="https://mythemestore.com/beehive-preview/wp-json/oembed/1.0/embed?url&amp;format=xml" />
-    <meta name="framework" content="Redux 4.1.24" />
-        <script type="text/javascript">var ajaxurl = 'https://mythemestore.com/beehive-preview/wp-admin/admin-ajax.php';</script>
+                    <div class="d-flex flex-column h-100 position-relative">
+                        <!-- Chat: Header -->
+                        <div class="chat-header border-bottom py-4 py-lg-7">
+                            <div class="row align-items-center">
 
-        <noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
-        <style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
-        <link rel="alternate" type="application/rss+xml" title="Beehive Preview | Site Wide Activity RSS Feed" href="feed/index.html" />
+                                <!-- Mobile: close -->
+                                <div class="col-2 d-xl-none">
+                                    <a class="icon icon-lg text-muted" href="#" data-toggle-chat="">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                                    </a>
+                                </div>
+                                <!-- Mobile: close -->
 
-    <link rel='canonical' href='index.html' />
-    <link rel="icon" href="../images/favicon.png" sizes="32x32" />
-    <link rel="icon" href="../images/favicon.png" sizes="192x192" />
-    <link rel="apple-touch-icon" href="../images/favicon.png" />
+                                
 
-     <!-- Font Awesome -->
-  <link rel="stylesheet" href="/assets/plugins/fontawesome-free/css/all.min.css">
-    <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
-    <meta name="msapplication-TileImage" content="https://mythemestore.com/beehive-preview/wp-content/uploads/2020/01/cropped-site-icon-270x270.png" />
-        </head>
+                                {{-- <!-- Content -->
+                                <div class="col-8 col-xl-12">
+                                    <div class="row align-items-center text-center text-xl-start">
+                                        <!-- Title -->
+                                        <div class="col-12 col-xl-6">
+                                            <div class="row align-items-center gx-5">
+                                                <div class="col-auto">
+                                                    <div class="avatar d-none d-xl-inline-block">
+                                                        <img class="avatar-img" src="assets/img/avatars/bootstrap.svg" alt="">
+                                                    </div>
+                                                </div>
 
-        <body class="directory activity  buddypress bp-nouveau page-template-default page page-id-370 theme-beehive woocommerce-no-js beehive beehive-guest-user beehive-child elementor-default elementor-kit-588 title-bar-active beehive-social-layout panel-expanded has-page-sidebar no-js">
+                                                <div class="col overflow-hidden">
+                                                    <h5 class="text-truncate">{{ $post->title }}</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Title -->
 
-            
+                                        
+                                    </div>
+                                </div> --}}
+                                <!-- Content -->
+
+                                <!-- Mobile: more -->
+                                <div class="col-2 d-xl-none text-end">
+                                    <div class="dropdown">
+                                        <a class="text-muted" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <div class="icon icon-lg">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                            </div>
+                                        </a>
+
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a class="dropdown-item" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-add-members" aria-controls="offcanvas-add-members">Add members</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-more-group" aria-controls="offcanvas-more-group">More</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Mobile: more -->
+
+                            </div>
+                        </div>
+                        <!-- Chat: Header -->
+
+                        @comments(['model' => $post])
+
                         
-            
-            
-    <div id="beehive-social-panel" class="beehive-social-panel">
-        <div class="inner-panel ass-scrollbar">
-            <div class="panel-block dark">
-                <a href="" class="panel-logo item">
-                    <img src="/images/logopng.png" alt="Beehive Preview" style="border-radius: 50%; background-color: white; padding: 12px"/>
-                    <h3 style="font-family: Roboto ,Arial,sans-serif; color: white; padding-top: 12px">Komunitas DPS</h3>
-                </a>
-                <div class="my-card item">
-                    <div class="info">
-                        <a href="" class="profile-avatar">
-                            <img src="/images/{{Auth::user()->avatar}}" class="avatar mCS_img_loaded" >
+                    </div>
+
+                </div>
+            </main>
+            <!-- Chat -->
+
+            <!-- Chat: Info -->
+            <div class="offcanvas offcanvas-end offcanvas-aside" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvas-more-group">
+                <!-- Offcanvas Header -->
+                <div class="offcanvas-header py-4 py-lg-7 border-bottom">
+                    <a class="icon icon-lg text-muted" href="#" data-bs-dismiss="offcanvas">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </a>
+
+                    <div class="visibility-xl-invisible overflow-hidden text-center">
+                        <h5 class="text-truncate">Bootstrap Community</h5>
+                        <p class="text-truncate">45 members, 9 online</p>
+                    </div>
+
+                    <!-- Dropdown -->
+                    <div class="dropdown">
+                        <a class="icon icon-lg text-muted" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
                         </a>
-                        <div class="profile-name">
-                            <a href="" class="name ellipsis">{{Auth::user()->name}}</a>
-                            <small style="background-color: gray; border-radius: 10%;  color: white; padding-left: 10px; padding-right: 10px">Angkatan {{Auth::user()->angkatan}}</small>
-                            
-                        </div>
-                        <div class="row">
-                            <p class="name ellipsis" style="font-size: 12px;">{{Auth::user()->email}}</p>
-                            <p class="name ellipsis" style="font-size: 12px; margin-top: 6px">{{Auth::user()->nomer_wa}}</p>
-                            <p class="name ellipsis" style="font-size: 12px; margin-top: 6px">{{Auth::user()->provinsi}} - {{Auth::user()->kabupaten}}</p>
-                            
-                        </div>
+
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#" class="dropdown-item d-flex align-items-center">
+                                    Edit
+                                    <div class="icon ms-auto">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-3"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-item d-flex align-items-center">
+                                    Mute
+                                    <div class="icon ms-auto">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-item d-flex align-items-center text-danger">
+                                    Leave
+                                    <div class="icon ms-auto">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-            <div class="panel-block light">
-                <div class="row panel-menu item">
-                    <ul id="menu-dashboard-menu" class="navbar-panel">
-                        <!-- ========== menu artikel ========== -->
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-80">
-                            <a href="/artikel">
-                                <i class="far fa-newspaper" style="padding-bottom: 6px"></i>
-                                <span style="font-size: 14px; font-weight: 600; font-family:Nunito Sans, Arial, sans-serif">Artikel</span>
-                            </a>
-                        </li>
+                <!-- Offcanvas Header -->
 
-                        <!-- ========== menu group ========== -->
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-370 current_page_item menu-item-74">
-                            <a href="/">
-                                <i class="far fa-comments" style="padding-bottom: 6px"></i>
-                                <span style="font-size: 14px; font-weight: 600; font-family:Nunito Sans, Arial, sans-serif">Group</span>
-                            </a>
-                        </li>
+                <!-- Offcanvas Body -->
+                <div class="offcanvas-body hide-scrollbar">
+                    <!-- Avatar -->
+                    <div class="text-center py-10">
+                        <div class="row gy-6">
+                            <div class="col-12">
+                                <div class="avatar avatar-xl mx-auto">
+                                    <img src="assets/img/avatars/bootstrap.svg" alt="#" class="avatar-img">
+                                </div>
+                            </div>
 
-                        <!-- ========== menu member ========== -->
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-80">
-                            <a href="">
-                                <i class="fas fa-user-friends" style="padding-bottom: 6px"></i>
-                                <span style="font-size: 14px; font-weight: 600; font-family:Nunito Sans, Arial, sans-serif">Member</span>
-                            </a>
-                        </li>
-
-                        <!-- ========== menu video ========== -->
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-80">
-                            <a href="https://www.youtube.com/channel/UCgJErfj2XBqXDdQBuPjdjDw" target="_blank">
-                                <i class="fas fa-play-circle" style="padding-bottom: 6px"></i>
-                                <span style="font-size: 14px; font-weight: 600; font-family:Nunito Sans, Arial, sans-serif">Video</span>
-                            </a>
-                        </li>
-
-                        <!-- ========== menu profile ========== -->
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-80">
-                            <a href="profile">
-                                <i class="far fa-address-card" style="padding-bottom: 6px"></i>
-                                <span style="font-size: 14px; font-weight: 600; font-family:Nunito Sans, Arial, sans-serif">Profile</span>
-                            </a>
-                        </li>
-
-                        <!-- ========== menu logout ========== -->
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-80">
-                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                        @csrf
-                      </form>
-                                <i class="fas fa-sign-out-alt" style="padding-bottom: 6px"></i>
-                                <span style="font-size: 14px; font-weight: 600; font-family:Nunito Sans, Arial, sans-serif">Logout</span>
-                            </a>
-                        </li>
-                    </ul>   
-                </div>
-
-    		</div>
-        </div>
-    </div>
-
-            <div id="beehive-page" class="site">
-
-                
-    <header id="sochead" class="site-header social-header user-nav-active">
-        <nav class="navbar beehive-navbar social fixed-top">
-            <div class="container">
-                <div id="beehive-ajax-search" class="beehive-ajax-search">
-                    <form role="search" method="get" id="ajax-search-form" class="ajax-search-form form-inline" action="https://mythemestore.com/beehive-preview/">
-                        <div class="search-field">
-                            <i class="fas fa-search"></i>
-                            <input id="ajax-search-textfield" type="text" name="s" placeholder="Search..." value="" autocomplete="off" required>
-                            <span class="beehive-loading-ring"></span>
+                            <div class="col-12">
+                                <h4>Bootstrap Community</h4>
+                                <p>Bootstrap is an open source <br> toolkit for developing web with <br> HTML, CSS, and JS.</p>
+                            </div>
                         </div>
-                        <div class="search-button">
-                            <button type="submit" class="search-submit"><i class="icon ion-android-search"></i></button>
-                        </div>
-                    </form>
-                    <div id="ajax-search-result"></div>
-                </div>
-                
-                <ul id="navbar-user" class="navbar-nav navbar-user">
-                    <li id="myaccount-url-list" class="nav-item dropdown myaccount-url-list">
-                        <a class="nav-link dropdown-toggle" href="#" id="nav_my_account" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img alt src="/images/{{Auth::user()->avatar}}" srcset="https://mythemestore.com/beehive-preview/wp-content/uploads/avatars/3/611d4ea51e6d8-bpfull.jpg 2x" class="avatar avatar-30 photo" height="30" width="30">
-                            <span class="account-name">{{Auth::user()->name}}</span>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="nav_my_account">
-                            <ul id="menu-account-menu" class="member-account-menu">
-                                <li id="menu-item-84" class="bp-menu bp-activity-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-84">
-                                    <a href="/artikel">Artikel</a>
+                    </div>
+                    <!-- Avatar -->
+
+                    <!-- Tabs -->
+                    <ul class="nav nav-pills nav-justified" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-bs-toggle="pill" href="#offcanvas-group-tab-members" role="tab" aria-controls="offcanvas-group-tab-members" aria-selected="true">
+                                People
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="pill" href="#offcanvas-group-tab-media" role="tab" aria-controls="offcanvas-group-tab-media" aria-selected="true">
+                                Media
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="pill" href="#offcanvas-group-tab-files" role="tab" aria-controls="offcanvas-group-tab-files" aria-selected="false">
+                                Files
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- Tabs -->
+
+                    <!-- Tabs: Content -->
+                    <div class="tab-content py-2" role="tablist">
+                        <!-- Members -->
+                        <div class="tab-pane fade show active" id="offcanvas-group-tab-members" role="tabpanel">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <div class="row align-items-center gx-5">
+                                        <!-- Avatar -->
+                                        <div class="col-auto">
+                                            <a href="#" class="avatar avatar-online">
+                                                <img class="avatar-img" src="assets/img/avatars/1.jpg" alt="">
+                                            </a>
+                                        </div>
+                                        <!-- Avatar -->
+
+                                        <!-- Text -->
+                                        <div class="col">
+                                            <h5><a href="#">Michael Fuller</a></h5>
+                                            <p>online</p>
+                                        </div>
+                                        <!-- Text -->
+
+                                        <!-- Owner -->
+                                        <div class="col-auto">
+                                            <span class="extra-small text-primary">owner</span>
+                                        </div>
+                                        <!-- Owner -->
+
+                                        <!-- Dropdown -->
+                                        <div class="col-auto">
+                                            <div class="dropdown">
+                                                <a class="icon text-muted" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                </a>
+
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center" href="#">
+                                                            Promote
+                                                            <div class="icon ms-auto">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-up"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center" href="#">
+                                                            Restrict
+                                                            <div class="icon ms-auto">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-down"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline><polyline points="17 18 23 18 23 12"></polyline></svg>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li><hr class="dropdown-divider"></li>
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center text-danger" href="#">
+                                                            Delete
+                                                            <div class="icon ms-auto">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- Dropdown -->
+                                    </div>
                                 </li>
-                                <li id="menu-item-84" class="bp-menu bp-activity-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-84">
-                                    <a href="/group">Group</a>
+
+                                <li class="list-group-item">
+                                    <div class="row align-items-center gx-5">
+                                        <!-- Avatar -->
+                                        <div class="col-auto">
+                                            <a href="#" class="avatar avatar-online">
+                                                <img class="avatar-img" src="assets/img/avatars/11.jpg" alt="">
+                                            </a>
+                                        </div>
+                                        <!-- Avatar -->
+
+                                        <!-- Text -->
+                                        <div class="col">
+                                            <h5><a href="#">Mila White</a></h5>
+                                            <p>online</p>
+                                        </div>
+                                        <!-- Text -->
+
+                                        <!-- Dropdown -->
+                                        <div class="col-auto">
+                                            <div class="dropdown">
+                                                <a class="icon text-muted" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                </a>
+
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center" href="#">
+                                                            Promote
+                                                            <div class="icon ms-auto">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-up"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center" href="#">
+                                                            Restrict
+                                                            <div class="icon ms-auto">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-down"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline><polyline points="17 18 23 18 23 12"></polyline></svg>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li><hr class="dropdown-divider"></li>
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center text-danger" href="#">
+                                                            Delete
+                                                            <div class="icon ms-auto">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- Dropdown -->
+                                    </div>
                                 </li>
-                                <li id="menu-item-84" class="bp-menu bp-activity-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-84">
-                                    <a href="">Member</a>
+
+                                <li class="list-group-item">
+                                    <div class="row align-items-center gx-5">
+                                        <!-- Avatar -->
+                                        <div class="col-auto">
+                                            <a href="#" class="avatar">
+                                                <img class="avatar-img" src="assets/img/avatars/6.jpg" alt="">
+                                            </a>
+                                        </div>
+                                        <!-- Avatar -->
+
+                                        <!-- Text -->
+                                        <div class="col">
+                                            <h5><a href="#">Don Knight</a></h5>
+                                            <p>last seen recently</p>
+                                        </div>
+                                        <!-- Text -->
+
+                                        <!-- Dropdown -->
+                                        <div class="col-auto">
+                                            <div class="dropdown">
+                                                <a class="icon text-muted" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                </a>
+
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center" href="#">
+                                                            Promote
+                                                            <div class="icon ms-auto">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-up"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center" href="#">
+                                                            Restrict
+                                                            <div class="icon ms-auto">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-down"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline><polyline points="17 18 23 18 23 12"></polyline></svg>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li><hr class="dropdown-divider"></li>
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center text-danger" href="#">
+                                                            Delete
+                                                            <div class="icon ms-auto">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- Dropdown -->
+                                    </div>
                                 </li>
-                                <li id="menu-item-84" class="bp-menu bp-activity-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-84">
-                                    <a href="">Video</a>
+
+                                <li class="list-group-item">
+                                    <div class="row align-items-center gx-5">
+                                        <!-- Avatar -->
+                                        <div class="col-auto">
+                                            <a href="#" class="avatar">
+                                                <img class="avatar-img" src="assets/img/avatars/8.jpg" alt="">
+                                            </a>
+                                        </div>
+                                        <!-- Avatar -->
+
+                                        <!-- Text -->
+                                        <div class="col">
+                                            <h5><a href="#">Elise Dennis</a></h5>
+                                            <p>last seen 3 days ago</p>
+                                        </div>
+                                        <!-- Text -->
+
+                                        <!-- Dropdown -->
+                                        <div class="col-auto">
+                                            <div class="dropdown">
+                                                <a class="icon text-muted" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                </a>
+
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center" href="#">
+                                                            Promote
+                                                            <div class="icon ms-auto">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-up"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center" href="#">
+                                                            Restrict
+                                                            <div class="icon ms-auto">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-down"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline><polyline points="17 18 23 18 23 12"></polyline></svg>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li><hr class="dropdown-divider"></li>
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center text-danger" href="#">
+                                                            Delete
+                                                            <div class="icon ms-auto">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- Dropdown -->
+                                    </div>
                                 </li>
-                                <li id="menu-item-84" class="bp-menu bp-activity-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-84">
-                                    <a href="/profile">Profile</a>
-                                </li>
-                                <li id="menu-item-84" class="bp-menu bp-activity-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-84">
-                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                            @csrf
-                                        </form>
-                                        <span>Logout</span>
-                                    </a>
+
+                                <li class="list-group-item">
+                                    <div class="row align-items-center gx-5">
+                                        <!-- Avatar -->
+                                        <div class="col-auto">
+                                            <a href="#" class="avatar">
+                                                <span class="avatar-text">O</span>
+                                            </a>
+                                        </div>
+                                        <!-- Avatar -->
+
+                                        <!-- Text -->
+                                        <div class="col">
+                                            <h5><a href="#">Ollie Chandler</a></h5>
+                                            <p>last seen within a week</p>
+                                        </div>
+                                        <!-- Text -->
+
+                                        <!-- Dropdown -->
+                                        <div class="col-auto">
+                                            <div class="dropdown">
+                                                <a class="icon text-muted" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                </a>
+
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center" href="#">
+                                                            Promote
+                                                            <div class="icon ms-auto">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-up"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center" href="#">
+                                                            Restrict
+                                                            <div class="icon ms-auto">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-down"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline><polyline points="17 18 23 18 23 12"></polyline></svg>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li><hr class="dropdown-divider"></li>
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center text-danger" href="#">
+                                                            Delete
+                                                            <div class="icon ms-auto">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- Dropdown -->
+                                    </div>
                                 </li>
                             </ul>
                         </div>
-                    </li>
-                    
-                </ul>
-            </div>
-        </nav>
-    </header><!-- #sochead -->
+                        <!-- Members -->
 
-                <div id="content" class="site-content">
-
-                    
-
-    <div id="primary" class="content-area">
-        <div class="layout social"> 
-            <div class="container-fluid">
-                <div class="row">
-
-                    
-                    <div class="col-lg-8 col-main" style="padding: 0px">
-                        <main id="main" class="main-content">
-
-                            
-    <div class="beehive-title-bar social">
-        <div class="title-bar-wrapper">
-                        <div class="title-wrapper screen-reader-text">
-                                        <h1 class="title h3">Activity</h1>
+                        <!-- Media -->
+                        <div class="tab-pane fade" id="offcanvas-group-tab-media" role="tabpanel">
+                            <div class="row row-cols-3 g-3 py-6">
+                                <div class="col">
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#modal-media-preview" data-theme-img-url="assets/img/chat/media-1.jpg">
+                                        <img class="img-fluid rounded" src="assets/img/chat/1.jpg" alt="">
+                                    </a>
                                 </div>
+
+                                <div class="col">
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#modal-media-preview" data-theme-img-url="assets/img/chat/media-2.jpg">
+                                        <img class="img-fluid rounded" src="assets/img/chat/2.jpg" alt="">
+                                    </a>
+                                </div>
+
+                                <div class="col">
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#modal-media-preview" data-theme-img-url="assets/img/chat/media-3.jpg">
+                                        <img class="img-fluid rounded" src="assets/img/chat/3.jpg" alt="">
+                                    </a>
+                                </div>
+
+                                <div class="col">
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#modal-media-preview" data-theme-img-url="assets/img/chat/media-1.jpg">
+                                        <img class="img-fluid rounded" src="assets/img/chat/4.jpg" alt="">
+                                    </a>
+                                </div>
+
+                                <div class="col">
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#modal-media-preview" data-theme-img-url="assets/img/chat/media-2.jpg">
+                                        <img class="img-fluid rounded" src="assets/img/chat/5.jpg" alt="">
+                                    </a>
+                                </div>
+
+                                <div class="col">
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#modal-media-preview" data-theme-img-url="assets/img/chat/media-3.jpg">
+                                        <img class="img-fluid rounded" src="assets/img/chat/6.jpg" alt="">
+                                    </a>
+                                </div>
+
+                                <div class="col">
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#modal-media-preview" data-theme-img-url="assets/img/chat/media-1.jpg">
+                                        <img class="img-fluid rounded" src="assets/img/chat/7.jpg" alt="">
+                                    </a>
+                                </div>
+
+                                <div class="col">
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#modal-media-preview" data-theme-img-url="assets/img/chat/media-2.jpg">
+                                        <img class="img-fluid rounded" src="assets/img/chat/8.jpg" alt="">
+                                    </a>
+                                </div>
+
+                                <div class="col">
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#modal-media-preview" data-theme-img-url="assets/img/chat/media-3.jpg">
+                                        <img class="img-fluid rounded" src="assets/img/chat/9.jpg" alt="">
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-    </div>
+                        <!-- Media -->
 
+                        <!-- Files -->
+                        <div class="tab-pane fade" id="offcanvas-group-tab-files" role="tabpanel">
+                            <ul class="list-group list-group-flush">
 
-    <article id="post-0" class="bp_activity type-bp_activity post-0 page type-page status-publish hentry beehive-post">
-        <div class="entry-content clearfix">
-                            <div id="buddypress" class="buddypress-wrap beehive bp-dir-hori-nav alignwide">
-        
-        
-        
-        
-            
-    <nav class="activity-type-navs main-navs bp-navs dir-navs " role="navigation" aria-label="Directory menu">
-
-        
-            <ul class="component-navigation activity-nav">
-
-                
-                    <li id="activity-all" class="dynamic"  data-bp-scope="all" data-bp-object="activity">
-                        <a href="#">
-                        {{ $post->title }}
-                        
+                                <!-- Item -->
+                                <li class="list-group-item">
+                                    <div class="row align-items-center gx-5">
+                                        <!-- Icons -->
+                                        <div class="col-auto">
+                                            <div class="avatar-group">
+                                                <a href="#" class="avatar avatar-sm">
+                                                    <img src="assets/img/avatars/6.jpg" class="avatar-img" alt="#">
                                                 </a>
-                    </li>
 
-                
-            </ul><!-- .component-navigation -->
-
-            <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    
-    <div class="row">
-        <div class="container col-sm-12" style="padding-top: 16px; padding-left: 30px; ">
-            <h2 style="font-family: Roboto ,Arial,sans-serif; "><b>{{ $post->title }}</b></h2>
-            <p style="font-family: Roboto ,Arial,sans-serif">
-                {{ $post->body }}
-            </p>
-            <!-- <div class="mb-5">
-                <comments-list></comments-list>
-            </div> -->
-
-            <div style="overflow: auto; white-space: nowrap;">
-                @comments(['model' => $post])
-            </div>
-        </div>
-    </div>
-    </nav><!-- .bp-navs -->
-
-        
-        <div class="screen-content">
-
-            
-            
-            <div id="activity-stream" class="activity" data-bp-list="activity">
-
-                    <div id="bp-ajax-loader">
-    </div>
-
-            </div><!-- .activity -->
-
-            
-        </div><!-- // .screen-content -->
-
-        </div><!-- #buddypress -->
-                </div><!-- .entry-contents -->
-        </article><!-- #post-0 -->
-
-    
-
-                            
-                        </main><!-- #main -->
-                    </div><!-- .col-main -->
-
-                    
-    <div class="col-lg-4 col-aside"><aside id="buddypress_sidebar" class="widget-area sidebar-widget-area sticky-sidebar"><div id="bp_core_members_widget-2" class="widget widget_bp_core_members_widget buddypress widget"><h5 class="widget-title">Member DPS</h5>
-    @php $users = DB::table('users')->take(6)->get(); @endphp
-                <div class="item-options" id="members-list-options">
-                    <a href="#" id="newest-members" >Member Terbaru</a>
-                </div>
-                <ul id="members-list" class="item-list" aria-live="polite" aria-relevant="all" aria-atomic="true">
-
-                        @foreach($users as $user)
-                        <li class="vcard">
-                            <div class="item-avatar">
-                                <a href="/user/{{ $user->id }}" class="bp-tooltip" data-bp-tooltip="{{ $user->name }}"><img loading="lazy" src="/images/{{$user->avatar}}" class="avatar user-3-avatar avatar-50 photo" width="50" height="50" alt="Profile picture of John Doe" /></a>
-                            </div>
-
-                            <div class="item">
-                                <div class="item-title fn"><a href="/user/{{ $user->id }}">{{ $user->name }}</a></div>
-                                <div class="item-meta">
-                                    <span class="activity">{{ $user->provinsi }}</span>
-                                </div>
-                            </div>
-                        </li>
-                        @endforeach
-                </ul>
-
-                <input type="hidden" id="_wpnonce-members" name="_wpnonce-members" value="652ef46d0c" />
-                <input type="hidden" name="members_widget_max" id="members_widget_max" value="7" />
-
-            
-            </div>
-    <nav class="sidebar-nav-menu"><ul id="menu-sidebar-menu" class="aside-navbar"><li id="menu-item-115" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-115"><a href="#">Home</a></li>
-    <li id="menu-item-114" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-114"><a href="#">About Us</a></li>
-    <li id="menu-item-113" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-113"><a href="#">FAQs</a></li>
-    <li id="menu-item-116" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-116"><a href="#">Blog</a></li>
-    <li id="menu-item-112" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-112"><a href="https://mythemestore.com/beehive-preview/contact/">Contact</a></li>
-    </ul></nav></aside></div>
-                </div><!-- .row -->
-            </div><!-- .container -->
-        </div><!-- .layout -->
-    </div><!-- primary -->
-
-
-                    
-                </div><!-- #content -->
-
-                
-            </div><!-- #beehive-page -->
-
-            
-    <div class="modal fade login-modal" id="login-modal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <div class="inner">
-                                                <img src="../wp-content/uploads/2020/10/avatar.png" alt="Guest" class="avatar guest-avatar">
+                                                <a href="#" class="avatar avatar-sm">
+                                                    <span class="avatar-text bg-primary">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                                                    </span>
+                                                </a>
+                                            </div>
                                         </div>
+                                        <!-- Icons -->
+
+                                        <!-- Text -->
+                                        <div class="col overflow-hidden">
+                                            <h5 class="text-truncate">
+                                                <a href="#">E5419783-047D-4B4C-B30E-F24DD8247731.JPG</a>
+                                            </h5>
+                                            <ul class="list-inline m-0">
+                                                <li class="list-inline-item">
+                                                    <small class="text-uppercase text-muted">79.2 KB</small>
+                                                </li>
+
+                                                <li class="list-inline-item">
+                                                    <small class="text-uppercase text-muted">txt</small>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!-- Text -->
+
+                                        <!-- Dropdown -->
+                                        <div class="col-auto">
+                                            <div class="dropdown">
+                                                <a class="icon text-muted" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                </a>
+
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center" href="#">
+                                                            Download
+                                                            <div class="icon ms-auto">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center" href="#">
+                                                            Share
+                                                            <div class="icon ms-auto">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share-2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li><hr class="dropdown-divider"></li>
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center text-danger" href="#">
+                                                            <span class="me-auto">Delete</span>
+                                                            <div class="icon">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- Dropdown -->
+                                    </div>
+                                </li>
+
+                                <!-- Item -->
+                                <li class="list-group-item">
+                                    <div class="row align-items-center gx-5">
+
+                                        <!-- Icons-->
+                                        <div class="col-auto">
+                                            <div class="avatar-group">
+                                                <a href="#" class="avatar avatar-sm">
+                                                    <img class="avatar-img" src="assets/img/avatars/6.jpg" alt="#">
+                                                </a>
+
+                                                <a href="#" class="avatar avatar-sm">
+                                                    <span class="avatar-text bg-warning">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-film"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- Icons -->
+
+                                        <!-- Text -->
+                                        <div class="col overflow-hidden">
+                                            <h5 class="text-truncate">
+                                                <a href="#">E5419783-047D-4B4C-B30E-F24DD8247731.JPG</a>
+                                            </h5>
+                                            <ul class="list-inline m-0">
+                                                <li class="list-inline-item">
+                                                    <small class="text-uppercase text-muted">54.2 KB</small>
+                                                </li>
+
+                                                <li class="list-inline-item">
+                                                    <small class="text-uppercase text-muted">mp4</small>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!-- Text -->
+
+                                        <!-- Dropdown -->
+                                        <div class="col-auto">
+                                            <div class="dropdown">
+                                                <a class="icon text-muted" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                </a>
+
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center" href="#">
+                                                            Download
+                                                            <div class="icon ms-auto">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center" href="#">
+                                                            Share
+                                                            <div class="icon ms-auto">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share-2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li><hr class="dropdown-divider"></li>
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center text-danger" href="#">
+                                                            <span class="me-auto">Delete</span>
+                                                            <div class="icon">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- Dropdown -->
+                                    </div>
+                                </li>
+
+                                <!-- Item -->
+                                <li class="list-group-item">
+                                    <div class="row align-items-center gx-5">
+
+                                        <!-- Icons -->
+                                        <div class="col-auto">
+                                            <div class="avatar-group">
+                                                <a href="#" class="avatar avatar-sm">
+                                                    <img class="avatar-img" src="assets/img/avatars/5.jpg" alt="#">
+                                                </a>
+
+                                                <a href="#" class="avatar avatar-sm">
+                                                    <span class="avatar-text bg-primary">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- Icons -->
+
+                                        <!-- Text -->
+                                        <div class="col overflow-hidden">
+                                            <h5 class="text-truncate">
+                                                <a href="#">E5419783-047D-4B4C-B30E-F24DD8247731.JPG</a>
+                                            </h5>
+                                            <ul class="list-inline m-0">
+                                                <li class="list-inline-item">
+                                                    <small class="text-uppercase text-muted">64.8 KB</small>
+                                                </li>
+
+                                                <li class="list-inline-item">
+                                                    <small class="text-uppercase text-muted">jpg</small>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!-- Text -->
+
+                                        <!-- Dropdown -->
+                                        <div class="col-auto">
+                                            <div class="dropdown">
+                                                <a class="icon text-muted" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                </a>
+
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center" href="#">
+                                                            Download
+                                                            <div class="icon ms-auto">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center" href="#">
+                                                            Share
+                                                            <div class="icon ms-auto">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share-2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li><hr class="dropdown-divider"></li>
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center text-danger" href="#">
+                                                            <span class="me-auto">Delete</span>
+                                                            <div class="icon">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- Dropdown -->
+                                    </div>
+                                </li>
+
+                                <!-- Item -->
+                                <li class="list-group-item">
+                                    <div class="row align-items-center gx-5">
+
+                                        <!-- Icons-->
+                                        <div class="col-auto">
+                                            <div class="avatar-group">
+                                                <a href="#" class="avatar avatar-sm">
+                                                    <img class="avatar-img" src="assets/img/avatars/11.jpg" alt="#">
+                                                </a>
+
+                                                <a href="#" class="avatar avatar-sm">
+                                                    <span class="avatar-text bg-warning">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-film"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- Icons-->
+
+                                        <!-- Text -->
+                                        <div class="col overflow-hidden">
+                                            <h5 class="text-truncate">
+                                                <a href="#">E5419783-047D-4B4C-B30E-F24DD8247731.JPG</a>
+                                            </h5>
+                                            <ul class="list-inline m-0">
+                                                <li class="list-inline-item">
+                                                    <small class="text-uppercase text-muted">80.8 KB</small>
+                                                </li>
+
+                                                <li class="list-inline-item">
+                                                    <small class="text-uppercase text-muted">mp4</small>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!-- Text -->
+
+                                        <!-- Dropdown -->
+                                        <div class="col-auto">
+                                            <div class="dropdown">
+                                                <a class="icon text-muted" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                </a>
+
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center" href="#">
+                                                            Download
+                                                            <div class="icon ms-auto">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center" href="#">
+                                                            Share
+                                                            <div class="icon ms-auto">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share-2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li><hr class="dropdown-divider"></li>
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center text-danger" href="#">
+                                                            <span class="me-auto">Delete</span>
+                                                            <div class="icon">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- Dropdown -->
+                                    </div>
+                                </li>
+
+                                <!-- Item -->
+                                <li class="list-group-item">
+                                    <div class="row align-items-center gx-5">
+
+                                        <!-- Icons-->
+                                        <div class="col-auto">
+                                            <div class="avatar-group">
+                                                <a href="#" class="avatar avatar-sm">
+                                                    <img class="avatar-img" src="assets/img/avatars/3.jpg" alt="#">
+                                                </a>
+
+                                                <a href="#" class="avatar avatar-sm">
+                                                    <span class="avatar-text bg-success">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- Icons-->
+
+                                        <!-- Text -->
+                                        <div class="col overflow-hidden">
+                                            <h5 class="text-truncate">
+                                                <a href="#">E5419783-047D-4B4C-B30E-F24DD8247731.JPG</a>
+                                            </h5>
+                                            <ul class="list-inline m-0">
+                                                <li class="list-inline-item">
+                                                    <small class="text-uppercase text-muted">100 KB</small>
+                                                </li>
+
+                                                <li class="list-inline-item">
+                                                    <small class="text-uppercase text-muted">jpg</small>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!-- Text -->
+
+                                        <!-- Dropdown -->
+                                        <div class="col-auto">
+                                            <div class="dropdown">
+                                                <a class="icon text-muted" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                                </a>
+
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center" href="#">
+                                                            Download
+                                                            <div class="icon ms-auto">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center" href="#">
+                                                            Share
+                                                            <div class="icon ms-auto">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share-2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li><hr class="dropdown-divider"></li>
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center text-danger" href="#">
+                                                            <span class="me-auto">Delete</span>
+                                                            <div class="icon">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- Dropdown -->
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Files -->
+                    </div>
+                    <!-- Tabs: Content -->
                 </div>
-                <div class="modal-body">
-                    <h4 class="modal-title">Log into your account</h4>
-                    <form action="" method="post" id="modal-login-form" class="beehive-login-form modal-login-form" name="modal-login-form">
-                        <div class="form-group">
-                            <div class="user-name">
-                                <label class="screen-reader-text">Email/username</label>
-                                <span class="icon"><i class="uil-user"></i></span>
-                                <input type="text" id="modal-username" class="username-control" required name="log" value="" placeholder="Email or username">
-                            </div>
+                <!-- Offcanvas Body -->
+            </div>
+
+            <!-- Chat: Add member -->
+            <div class="offcanvas offcanvas-end offcanvas-aside" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvas-add-members">
+                <!-- Offcanvas Header -->
+                <div class="offcanvas-header py-4 py-lg-7 border-bottom ">
+                    <a class="icon icon-lg text-muted" href="#" data-bs-dismiss="offcanvas">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </a>
+
+                    <div class="visibility-xl-invisible overflow-hidden text-center">
+                        <h5 class="text-truncate">Members</h5>
+                        <p class="text-truncate">Add new members</p>
+                    </div>
+
+                    <a class="icon icon-lg text-muted" data-bs-toggle="collapse" href="#search-members" role="button" aria-expanded="false" aria-controls="search-members" onclick="event.preventDefault();">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+                    </a>
+                </div>
+                <!-- Offcanvas Header -->
+
+                <!-- Offcanvas Body -->
+                <div class="offcanvas-body hide-scrollbar py-0">
+
+                    <!-- Search -->
+                    <div class="collapse" id="search-members">
+                        <div class="border-bottom py-6">
+
+                            <form action="#">
+                                <div class="input-group">
+                                    <div class="input-group-text" id="search-user">
+                                        <div class="icon icon-lg">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                        </div>
+                                    </div>
+
+                                    <input type="text" class="form-control form-control-lg ps-0" placeholder="User name or phone" aria-label="User name or phone" aria-describedby="search-user">
+                                </div>
+                            </form>
+
                         </div>
-                        <div class="form-group">
-                            <div class="pass">
-                                <label class="screen-reader-text">Password</label>
-                                <span class="icon"><i class="uil-key-skeleton-alt"></i></span>
-                                <input type="password" id="modal-password" class="password-control" required name="pwd" value="" placeholder="Password">
-                            </div>
-                        </div>
-                                            <div class="modal-options">
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="forgetmenot">
-                                        <label for="modal-rememberme">
-                                            <input id="modal-rememberme" name="rememberme" type="checkbox" value="forever" /> Remember Me									</label>
+                    </div>
+                    <!-- Search -->
+
+                    <!-- Members -->
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <small class="text-uppercase text-muted">B</small>
+                        </li>
+
+                        <li class="list-group-item">
+                            <div class="row align-items-center gx-5">
+                                <div class="col-auto">
+                                    <div class="avatar ">
+                                        
+                                            <img class="avatar-img" src="assets/img/avatars/6.jpg" alt="">
+                                        
+                                        
                                     </div>
                                 </div>
-                                <div class="col-6">
-                                    <div class="forgot-password">
-                                        <a href="https://mythemestore.com/beehive-preview/my-account/lost-password/">
-                                            Lost Password?									</a>
+                                <div class="col">
+                                    <h5>Bill Marrow</h5>
+                                    <p>last seen 3 days ago</p>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="id-add-user-user-1">
+                                        <label class="form-check-label" for="id-add-user-user-1"></label>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                                                <div class="beehive-login-result"></div>
-                                            <div class="submit">
-                            <button type="submit" id="modal_login_submit" class="submit-login" name="wp-submit">Log Into Your Account</button>
-                        </div>
-                        <input type="hidden" id="modal-login-security" name="modal-login-security" value="0bb035e369" /><input type="hidden" name="_wp_http_referer" value="/beehive-preview/activity/" />											<div class="register-link">
-                                <p class="color-primary">Signup is disabled</p>
-                            </div>
-                                        </form>
+                            <label class="stretched-label" for="id-add-user-user-1"></label>
+                        </li>
+
+                        <li class="list-group-item">
+                            <small class="text-uppercase text-muted">D</small>
+                        </li>
+
+                        <li class="list-group-item">
+                            <div class="row align-items-center gx-5">
+                                <div class="col-auto">
+                                    <div class="avatar ">
+                                        
+                                            <img class="avatar-img" src="assets/img/avatars/5.jpg" alt="">
+                                        
+                                        
+                                    </div>
                                 </div>
+                                <div class="col">
+                                    <h5>Damian Binder</h5>
+                                    <p>last seen within a week</p>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="id-add-user-user-2">
+                                        <label class="form-check-label" for="id-add-user-user-2"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="stretched-label" for="id-add-user-user-2"></label>
+                        </li>
+
+                        <li class="list-group-item">
+                            <div class="row align-items-center gx-5">
+                                <div class="col-auto">
+                                    <div class="avatar avatar-online">
+                                        
+                                        
+                                            <span class="avatar-text">D</span>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <h5>Don Knight</h5>
+                                    <p>online</p>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="id-add-user-user-3">
+                                        <label class="form-check-label" for="id-add-user-user-3"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="stretched-label" for="id-add-user-user-3"></label>
+                        </li>
+
+                        <li class="list-group-item">
+                            <small class="text-uppercase text-muted">E</small>
+                        </li>
+
+                        <li class="list-group-item">
+                            <div class="row align-items-center gx-5">
+                                <div class="col-auto">
+                                    <div class="avatar avatar-online">
+                                        
+                                            <img class="avatar-img" src="assets/img/avatars/8.jpg" alt="">
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <h5>Elise Dennis</h5>
+                                    <p>online</p>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="id-add-user-user-4">
+                                        <label class="form-check-label" for="id-add-user-user-4"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="stretched-label" for="id-add-user-user-4"></label>
+                        </li>
+
+                        <li class="list-group-item">
+                            <small class="text-uppercase text-muted">M</small>
+                        </li>
+
+                        <li class="list-group-item">
+                            <div class="row align-items-center gx-5">
+                                <div class="col-auto">
+                                    <div class="avatar ">
+                                        
+                                            <img class="avatar-img" src="assets/img/avatars/11.jpg" alt="">
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <h5>Mila White</h5>
+                                    <p>last seen a long time ago</p>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="id-add-user-user-5">
+                                        <label class="form-check-label" for="id-add-user-user-5"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="stretched-label" for="id-add-user-user-5"></label>
+                        </li>
+
+                        <li class="list-group-item">
+                            <div class="row align-items-center gx-5">
+                                <div class="col-auto">
+                                    <div class="avatar avatar-online">
+                                        
+                                        
+                                            <span class="avatar-text">M</span>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <h5>Michael Fuller</h5>
+                                    <p>online</p>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="id-add-user-user-6">
+                                        <label class="form-check-label" for="id-add-user-user-6"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="stretched-label" for="id-add-user-user-6"></label>
+                        </li>
+
+                        <li class="list-group-item">
+                            <div class="row align-items-center gx-5">
+                                <div class="col-auto">
+                                    <div class="avatar ">
+                                        
+                                        
+                                            <span class="avatar-text">M</span>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <h5>Marshall Wallaker</h5>
+                                    <p>last seen within a month</p>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="id-add-user-user-7">
+                                        <label class="form-check-label" for="id-add-user-user-7"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="stretched-label" for="id-add-user-user-7"></label>
+                        </li>
+
+                        <li class="list-group-item">
+                            <small class="text-uppercase text-muted">O</small>
+                        </li>
+
+                        <li class="list-group-item">
+                            <div class="row align-items-center gx-5">
+                                <div class="col-auto">
+                                    <div class="avatar avatar-online">
+                                        
+                                        
+                                            <span class="avatar-text">O</span>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <h5>Ollie Chandler</h5>
+                                    <p>online</p>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="id-add-user-user-8">
+                                        <label class="form-check-label" for="id-add-user-user-8"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="stretched-label" for="id-add-user-user-8"></label>
+                        </li>
+
+                        <li class="list-group-item">
+                            <small class="text-uppercase text-muted">W</small>
+                        </li>
+
+                        <li class="list-group-item">
+                            <div class="row align-items-center gx-5">
+                                <div class="col-auto">
+                                    <div class="avatar ">
+                                        
+                                            <img class="avatar-img" src="assets/img/avatars/4.jpg" alt="">
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <h5>Warren White</h5>
+                                    <p>last seen recently</p>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="id-add-user-user-9">
+                                        <label class="form-check-label" for="id-add-user-user-9"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="stretched-label" for="id-add-user-user-9"></label>
+                        </li>
+
+                        <li class="list-group-item">
+                            <div class="row align-items-center gx-5">
+                                <div class="col-auto">
+                                    <div class="avatar avatar-online">
+                                        
+                                            <img class="avatar-img" src="assets/img/avatars/7.jpg" alt="">
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <h5>William Wright</h5>
+                                    <p>online</p>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="id-add-user-user-10">
+                                        <label class="form-check-label" for="id-add-user-user-10"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="stretched-label" for="id-add-user-user-10"></label>
+                        </li>
+
+                        <li class="list-group-item">
+                            <div class="row align-items-center gx-5">
+                                <div class="col-auto">
+                                    <div class="avatar avatar-online">
+                                        
+                                        
+                                            <span class="avatar-text">W</span>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <h5>Winton Wilkinson</h5>
+                                    <p>online</p>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="id-add-user-user-11">
+                                        <label class="form-check-label" for="id-add-user-user-11"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="stretched-label" for="id-add-user-user-11"></label>
+                        </li>
+                    </ul>
+                    <!-- Members -->
+                </div>
+                <!-- Offcanvas Body -->
+
+                <!-- Offcanvas Footer -->
+                <div class="offcanvas-footer border-top py-4 py-lg-7">
+                    <a href="#" class="btn btn-lg btn-primary w-100 d-flex align-items-center">
+                        Add members
+
+                        <span class="icon ms-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </span>
+                    </a>
+                </div>
+                <!-- Offcanvas Footer -->
             </div>
         </div>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <i class="icon ion-close-round"></i>
-        </button>
-    </div>
+        <!-- Layout -->
 
-                <script type="text/javascript">
-            (function () {
-                var c = document.body.className;
-                c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
-                document.body.className = c;
-            })()
-        </script>
-        <script type='text/javascript' src='../wp-includes/js/underscore.min4511.js?ver=1.8.3'></script>
-    <script type='text/javascript' src='../wp-includes/js/backbone.min2fca.js?ver=1.4.0'></script>
-    <script type='text/javascript' src='../wp-content/plugins/buddypress-media/lib/media-element/wp-mediaelement.min13f7.js?ver=4.6.6'></script>
-    <script type='text/javascript'>
-    /* <![CDATA[ */
-    var bp_template_pack = "nouveau";
-    var RTMedia_Main_JS = {"media_delete_confirmation":"Are you sure you want to delete this media?","rtmedia_ajaxurl":"https:\/\/mythemestore.com\/beehive-preview\/wp-admin\/admin-ajax.php","media_delete_success":"Media file deleted successfully."};
-    var rtmedia_ajax_url = "index.html\/\/mythemestore.com\/beehive-preview\/wp-admin\/admin-ajax.php";
-    var rtmedia_media_slug = "media";
-    var rtmedia_lightbox_enabled = "1";
-    var rtmedia_direct_upload_enabled = "0";
-    var rtmedia_gallery_reload_on_upload = "1";
-    var rtmedia_empty_activity_msg = "Please enter some content to post.";
-    var rtmedia_empty_comment_msg = "Empty comment is not allowed.";
-    var rtmedia_media_delete_confirmation = "Are you sure you want to delete this media?";
-    var rtmedia_media_comment_delete_confirmation = "Are you sure you want to delete this comment?";
-    var rtmedia_album_delete_confirmation = "Are you sure you want to delete this Album?";
-    var rtmedia_drop_media_msg = "Drop files here";
-    var rtmedia_album_created_msg = " album created successfully.";
-    var rtmedia_something_wrong_msg = "Something went wrong. Please try again.";
-    var rtmedia_empty_album_name_msg = "Enter an album name.";
-    var rtmedia_max_file_msg = "Max file Size Limit : ";
-    var rtmedia_allowed_file_formats = "Allowed File Formats";
-    var rtmedia_select_all_visible = "Select All Visible";
-    var rtmedia_unselect_all_visible = "Unselect All Visible";
-    var rtmedia_no_media_selected = "Please select some media.";
-    var rtmedia_selected_media_delete_confirmation = "Are you sure you want to delete the selected media?";
-    var rtmedia_selected_media_move_confirmation = "Are you sure you want to move the selected media?";
-    var rtmedia_waiting_msg = "Waiting";
-    var rtmedia_uploaded_msg = "Uploaded";
-    var rtmedia_uploading_msg = "Uploading";
-    var rtmedia_upload_failed_msg = "Failed";
-    var rtmedia_close = "Close";
-    var rtmedia_edit = "Edit";
-    var rtmedia_delete = "Delete";
-    var rtmedia_edit_media = "Edit Media";
-    var rtmedia_remove_from_queue = "Remove from queue";
-    var rtmedia_add_more_files_msg = "Add more files";
-    var rtmedia_file_extension_error_msg = "File not supported";
-    var rtmedia_more = "more";
-    var rtmedia_less = "less";
-    var rtmedia_read_more = "Read more";
-    var rtmedia__show_less = "Show less";
-    var rtmedia_activity_text_with_attachment = "disable";
-    var rtmedia_delete_uploaded_media = "This media is uploaded. Are you sure you want to delete this media?";
-    var rtm_wp_version = "5.4.6";
-    var rtmedia_main_js_strings = {"rtmedia_albums":"Albums","privacy_update_success":"Privacy updated successfully.","privacy_update_error":"Couldn't change privacy, please try again."};
-    var rtmedia_masonry_layout = "false";
-    var rtmedia_media_size_config = {"photo":{"thumb":{"width":250,"height":250,"crop":1},"medium":{"width":450,"height":320,"crop":1},"large":{"width":800,"height":0,"crop":1}},"video":{"activity_media":{"width":320,"height":240},"single_media":{"width":640,"height":480}},"music":{"activity_media":{"width":320},"single_media":{"width":640}},"featured":{"default":{"width":100,"height":100,"crop":1}}};
-    var rtmedia_disable_media_in_commented_media = "1";
-    var rtmedia_disable_media_in_commented_media_text = "Adding media in Comments is not allowed";
-    /* ]]> */
-    </script>
-    <script type='text/javascript' src='../wp-content/plugins/buddypress-media/app/assets/js/rtmedia.min13f7.js?ver=4.6.6'></script>
-    <script type='text/javascript'>
-    /* <![CDATA[ */
-    var template_url = "index.html\/\/mythemestore.com\/beehive-preview\/wp-admin\/admin-ajax.php?action=rtmedia_get_template&template=media-gallery-item";
-    var rtMedia_plupload_config = {"url":"\/beehive-preview\/activity\/upload\/","runtimes":"html5,flash,html4","browse_button":"rtMedia-upload-button","container":"rtmedia-upload-container","drop_element":"drag-drop-area","filters":[{"title":"Media Files","extensions":"jpg,jpeg,png,gif,mp4,mov,m4v,m2v,avi,mpg,flv,wmv,mkv,webm,ogv,mxf,asf,vob,mts,qt,mpeg,x-msvideo,3gp,mp3,wma,ogg,wav,m4a"}],"max_file_size":"256M","multipart":"1","urlstream_upload":"1","flash_swf_url":"https:\/\/mythemestore.com\/beehive-preview\/wp-includes\/js\/plupload\/plupload.flash.swf","silverlight_xap_url":"https:\/\/mythemestore.com\/beehive-preview\/wp-includes\/js\/plupload\/plupload.silverlight.xap","file_data_name":"rtmedia_file","multi_selection":"1","multipart_params":{"redirect":"no","redirection":"false","action":"wp_handle_upload","_wp_http_referer":"\/beehive-preview\/activity\/","mode":"file_upload","rtmedia_upload_nonce":"a3303aa3ef"},"max_file_size_msg":"256M"};
-    var rMedia_loading_media = "index.html\/\/mythemestore.com\/beehive-preview\/wp-content\/plugins\/buddypress-media\/app\/assets\/admin\/img\/boxspinner.gif";
-    var rtmedia_media_thumbs = {"photo":"https:\/\/mythemestore.com\/beehive-preview\/wp-content\/plugins\/buddypress-media\/app\/assets\/admin\/img\/image_thumb.png","video":"https:\/\/mythemestore.com\/beehive-preview\/wp-content\/plugins\/buddypress-media\/app\/assets\/admin\/img\/video_thumb.png","music":"https:\/\/mythemestore.com\/beehive-preview\/wp-content\/plugins\/buddypress-media\/app\/assets\/admin\/img\/audio_thumb.png"};
-    var rtmedia_set_featured_image_msg = "Featured media set successfully.";
-    var rtmedia_unset_featured_image_msg = "Featured media removed successfully.";
-    var rtmedia_edit_media_info_upload = {"title":"Title:","description":"Description:"};
-    var rtmedia_no_media_found = "Oops !! There's no media found for the request !!";
-    var bp_template_pack = "nouveau";
-    var rtmedia_backbone_strings = {"rtm_edit_file_name":"Edit File Name"};
-    var rtmedia_load_more_or_pagination = "load_more";
-    var rtmedia_bp_enable_activity = "1";
-    var rtmedia_upload_progress_error_message = "There are some uploads in progress. Do you want to cancel them?";
-    var rtmedia_media_disabled_error_message = "Media upload is disabled. Please Enable at least one media type to proceed.";
-    var rtmedia_exteansions = {"photo":["jpg","jpeg","png","gif"],"video":["mp4","mov","m4v","m2v","avi","mpg","flv","wmv","mkv","webm","ogv","mxf","asf","vob","mts","qt","mpeg","x-msvideo","3gp"],"music":["mp3","wma","ogg","wav","m4a"]};
-    var rtMedia_update_plupload_comment = {"url":"\/beehive-preview\/activity\/upload\/","runtimes":"html5,flash,html4","browse_button":"rtmedia-comment-media-upload","container":"rtmedia-comment-media-upload-container","filters":[{"title":"Media Files","extensions":"jpg,jpeg,png,gif,mp4,mov,m4v,m2v,avi,mpg,flv,wmv,mkv,webm,ogv,mxf,asf,vob,mts,qt,mpeg,x-msvideo,3gp,mp3,wma,ogg,wav,m4a"}],"max_file_size":"256M","multipart":"1","urlstream_upload":"1","flash_swf_url":"https:\/\/mythemestore.com\/beehive-preview\/wp-includes\/js\/plupload\/plupload.flash.swf","silverlight_xap_url":"https:\/\/mythemestore.com\/beehive-preview\/wp-includes\/js\/plupload\/plupload.silverlight.xap","file_data_name":"rtmedia_file","multi_selection":"","multipart_params":{"redirect":"no","redirection":"false","action":"wp_handle_upload","_wp_http_referer":"\/beehive-preview\/activity\/","mode":"file_upload","rtmedia_upload_nonce":"a3303aa3ef"},"max_file_size_msg":"256M"};
-    var rMedia_loading_file = "index.html\/\/mythemestore.com\/beehive-preview\/wp-admin\/images\/loading.gif";
-    /* ]]> */
-    </script>
-    <script type='text/javascript' src='../wp-content/plugins/buddypress-media/app/assets/js/rtMedia.backbone13f7.js?ver=4.6.6'></script>
-    <script type='text/javascript' src='../wp-content/plugins/buddypress/bp-core/js/vendor/moment-js/moment.min245d.js?ver=9.0.0'></script>
-    <script type='text/javascript' src='../wp-content/plugins/buddypress/bp-core/js/vendor/livestamp.min245d.js?ver=9.0.0'></script>
-    <script type='text/javascript' src='../wp-content/plugins/buddypress/bp-core/js/vendor/jquery.caret.min245d.js?ver=9.0.0'></script>
-    <script type='text/javascript' src='../wp-content/plugins/buddypress/bp-core/js/vendor/jquery.atwho.min245d.js?ver=9.0.0'></script>
-    <script type='text/javascript' src='../wp-content/plugins/buddypress/bp-activity/js/mentions.min245d.js?ver=9.0.0'></script>
-    <script type='text/javascript' src='../wp-includes/js/dist/vendor/wp-polyfill.min89b1.js?ver=7.4.4'></script>
-    <script type='text/javascript'>
-    ( 'fetch' in window ) || document.write( '<script src="../wp-includes/js/dist/vendor/wp-polyfill-fetch.min6e0e.js?ver=3.0.0"></scr' + 'ipt>' );( document.contains ) || document.write( '<script src="../wp-includes/js/dist/vendor/wp-polyfill-node-contains.min2e00.js?ver=3.42.0"></scr' + 'ipt>' );( window.DOMRect ) || document.write( '<script src="../wp-includes/js/dist/vendor/wp-polyfill-dom-rect.min2e00.js?ver=3.42.0"></scr' + 'ipt>' );( window.URL && window.URL.prototype && window.URLSearchParams ) || document.write( '<script src="../wp-includes/js/dist/vendor/wp-polyfill-url.min5aed.js?ver=3.6.4"></scr' + 'ipt>' );( window.FormData && window.FormData.prototype.keys ) || document.write( '<script src="../wp-includes/js/dist/vendor/wp-polyfill-formdata.mine9bd.js?ver=3.0.12"></scr' + 'ipt>' );( Element.prototype.matches && Element.prototype.closest ) || document.write( '<script src="../wp-includes/js/dist/vendor/wp-polyfill-element-closest.min4c56.js?ver=2.0.2"></scr' + 'ipt>' );
-    </script>
-    <script type='text/javascript' src='../wp-includes/js/dist/hooks.min9764.js?ver=b33812efb363979cc606e6c29a1deb61'></script>
-    <script type='text/javascript'>
-    /* <![CDATA[ */
-    var heartbeatSettings = {"ajaxurl":"\/beehive-preview\/wp-admin\/admin-ajax.php"};
-    /* ]]> */
-    </script>
-    <script type='text/javascript' src='../wp-includes/js/heartbeat.min03e2.js?ver=5.4.6'></script>
-    <script type='text/javascript'>
-    /* <![CDATA[ */
-    var BP_Nouveau = {"ajaxurl":"https:\/\/mythemestore.com\/beehive-preview\/wp-admin\/admin-ajax.php","confirm":"Are you sure?","show_x_comments":"Show all %d comments","unsaved_changes":"Your profile has unsaved changes. If you leave the page, the changes will be lost.","object_nav_parent":"#buddypress","objects":["activity","members","groups","xprofile","friends","messages","settings","notifications","group_members","group_requests"],"nonces":{"activity":"d2a5b5a29d","members":"5ead7a455d","groups":"6ba461119c","xprofile":"bd4b37e44c","friends":"003e5f1d0b","messages":"cc2866fb9e","settings":"1a13960be1","notifications":"3c2a284d24"},"newest":"Load Newest","pulse":"15","activity":{"params":{"user_id":0,"object":"user","backcompat":{"before_post_form":false,"post_form_options":false},"post_nonce":"f83d3f5412","avatar_url":false,"avatar_width":50,"avatar_height":50,"user_domain":"","avatar_alt":"Profile photo of ","objects":{"profile":{"text":"Post in: Profile","autocomplete_placeholder":"","priority":5},"group":{"text":"Post in: Group","autocomplete_placeholder":"Start typing the group name...","priority":10}}},"strings":{"whatsnewPlaceholder":"What's new, ?","whatsnewLabel":"Post what's new","whatsnewpostinLabel":"Post in","postUpdateButton":"Post Update","cancelButton":"Cancel"}}};
-    /* ]]> */
-    </script>
-    <script type='text/javascript' src='../wp-content/plugins/buddypress/bp-templates/bp-nouveau/js/buddypress-nouveau.min245d.js?ver=9.0.0'></script>
-    <script type='text/javascript' src='../wp-content/plugins/buddypress/bp-templates/bp-nouveau/js/buddypress-activity.min245d.js?ver=9.0.0'></script>
-    <script type='text/javascript'>
-    /* <![CDATA[ */
-    var wpcf7 = {"apiSettings":{"root":"https:\/\/mythemestore.com\/beehive-preview\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"cached":"1"};
-    /* ]]> */
-    </script>
-    <script type='text/javascript' src='../wp-content/plugins/contact-form-7/includes/js/scripts9dff.js?ver=5.3.2'></script>
-    <script type='text/javascript' src='../wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min44fd.js?ver=2.70'></script>
-    <script type='text/javascript'>
-    /* <![CDATA[ */
-    var wc_add_to_cart_params = {"ajax_url":"\/beehive-preview\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/beehive-preview\/?wc-ajax=%%endpoint%%","i18n_view_cart":"View cart","cart_url":"https:\/\/mythemestore.com\/beehive-preview\/cart\/","is_cart":"","cart_redirect_after_add":"no"};
-    /* ]]> */
-    </script>
-    <script type='text/javascript' src='../wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min287d.js?ver=4.8.0'></script>
-    <script type='text/javascript' src='../wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min6b25.js?ver=2.1.4'></script>
-    <script type='text/javascript'>
-    /* <![CDATA[ */
-    var woocommerce_params = {"ajax_url":"\/beehive-preview\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/beehive-preview\/?wc-ajax=%%endpoint%%"};
-    /* ]]> */
-    </script>
-    <script type='text/javascript' src='../wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min287d.js?ver=4.8.0'></script>
-    <script type='text/javascript'>
-    /* <![CDATA[ */
-    var wc_cart_fragments_params = {"ajax_url":"\/beehive-preview\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/beehive-preview\/?wc-ajax=%%endpoint%%","cart_hash_key":"wc_cart_hash_24a852a3ad1982190b3cc9df680cab72","fragment_name":"wc_fragments_24a852a3ad1982190b3cc9df680cab72","request_timeout":"5000"};
-    /* ]]> */
-    </script>
-    <script type='text/javascript' src='../wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min287d.js?ver=4.8.0'></script>
-    <script type='text/javascript' src='../wp-content/themes/beehive/assets/js/popper.min1159.js?ver=1.4.2'></script>
-    <script type='text/javascript' src='../wp-content/themes/beehive/assets/js/bootstrap.min1159.js?ver=1.4.2'></script>
-    <script type='text/javascript' src='../wp-content/themes/beehive/assets/js/mscrollbar.min1159.js?ver=1.4.2'></script>
-    <script type='text/javascript' src='../wp-content/themes/beehive/assets/js/wow.min1159.js?ver=1.4.2'></script>
-    <script type='text/javascript' src='../wp-content/themes/beehive/assets/js/hiraku.min1159.js?ver=1.4.2'></script>
-    <script type='text/javascript' src='../wp-content/themes/beehive/assets/js/jquery.shorten.min1159.js?ver=1.4.2'></script>
-    <script type='text/javascript' src='../wp-content/themes/beehive/assets/js/jquery.fitvids.min1159.js?ver=1.4.2'></script>
-    <script type='text/javascript' src='../wp-content/themes/beehive/assets/js/flexmenu.min1159.js?ver=1.4.2'></script>
-    <script type='text/javascript' src='../wp-content/plugins/elementor/assets/lib/swiper/swiper.min48f5.js?ver=5.3.6'></script>
-    <script type='text/javascript'>
-    /* <![CDATA[ */
-    var beehive_data = {"ajaxurl":"https:\/\/mythemestore.com\/beehive-preview\/wp-admin\/admin-ajax.php","beehive_search_nonce":"497f531add","avatar":"<img alt='' src='https:\/\/secure.gravatar.com\/avatar\/?s=24&d=mm&r=g' srcset='https:\/\/secure.gravatar.com\/avatar\/?s=48&d=mm&r=g 2x' class='avatar avatar-24 photo avatar-default' height='24' width='24' \/>","mobile_logo_url":null,"light_modal":null,"user_nav":"1","stick_offset":"90","more_text":"More","read_more":"Read more","read_close":"Close","like_msg":"Like this","unlike_msg":"Unlike this","attachment_text":"Attach media","activity_max":"3000","redirecturl":"https:\/\/mythemestore.com\/beehive-preview\/activity\/","bp_is_active":"1","icon_logo_url":"https:\/\/mythemestore.com\/beehive-preview\/wp-content\/themes\/beehive\/assets\/images\/logo-icon.svg"};
-    /* ]]> */
-    </script>
-    <script type='text/javascript' src='../wp-content/themes/beehive/rtmedia/assets/js/beehive-rtmedia.min1159.js?ver=1.4.2'></script>
-    <script type='text/javascript'>
-    /* <![CDATA[ */
-    var beehive_data = {"ajaxurl":"https:\/\/mythemestore.com\/beehive-preview\/wp-admin\/admin-ajax.php","beehive_search_nonce":"497f531add","avatar":"<img alt='' src='https:\/\/secure.gravatar.com\/avatar\/?s=24&d=mm&r=g' srcset='https:\/\/secure.gravatar.com\/avatar\/?s=48&d=mm&r=g 2x' class='avatar avatar-24 photo avatar-default' height='24' width='24' \/>","mobile_logo_url":null,"light_modal":null,"user_nav":"1","stick_offset":"90","more_text":"More","read_more":"Read more","read_close":"Close","like_msg":"Like this","unlike_msg":"Unlike this","attachment_text":"Attach media","activity_max":"3000","redirecturl":"https:\/\/mythemestore.com\/beehive-preview\/activity\/","bp_is_active":"1","icon_logo_url":"https:\/\/mythemestore.com\/beehive-preview\/wp-content\/themes\/beehive\/assets\/images\/logo-icon.svg"};
-    /* ]]> */
-    </script>
-    <script type='text/javascript' src='../wp-content/themes/beehive/buddypress/js/beehive-bp-like.min1159.js?ver=1.4.2'></script>
-    <script type='text/javascript'>
-    /* <![CDATA[ */
-    var beehive_data = {"ajaxurl":"https:\/\/mythemestore.com\/beehive-preview\/wp-admin\/admin-ajax.php","beehive_search_nonce":"497f531add","avatar":"<img alt='' src='https:\/\/secure.gravatar.com\/avatar\/?s=24&d=mm&r=g' srcset='https:\/\/secure.gravatar.com\/avatar\/?s=48&d=mm&r=g 2x' class='avatar avatar-24 photo avatar-default' height='24' width='24' \/>","mobile_logo_url":null,"light_modal":null,"user_nav":"1","stick_offset":"90","more_text":"More","read_more":"Read more","read_close":"Close","like_msg":"Like this","unlike_msg":"Unlike this","attachment_text":"Attach media","activity_max":"3000","redirecturl":"https:\/\/mythemestore.com\/beehive-preview\/activity\/","bp_is_active":"1","icon_logo_url":"https:\/\/mythemestore.com\/beehive-preview\/wp-content\/themes\/beehive\/assets\/images\/logo-icon.svg"};
-    /* ]]> */
-    </script>
-    <script type='text/javascript' src='../wp-content/themes/beehive/buddypress/js/beehive-bp.min1159.js?ver=1.4.2'></script>
-    <script type='text/javascript'>
-    /* <![CDATA[ */
-    var beehive_data = {"ajaxurl":"https:\/\/mythemestore.com\/beehive-preview\/wp-admin\/admin-ajax.php","beehive_search_nonce":"497f531add","avatar":"<img alt='' src='https:\/\/secure.gravatar.com\/avatar\/?s=24&d=mm&r=g' srcset='https:\/\/secure.gravatar.com\/avatar\/?s=48&d=mm&r=g 2x' class='avatar avatar-24 photo avatar-default' height='24' width='24' \/>","mobile_logo_url":null,"light_modal":null,"user_nav":"1","stick_offset":"90","more_text":"More","read_more":"Read more","read_close":"Close","like_msg":"Like this","unlike_msg":"Unlike this","attachment_text":"Attach media","activity_max":"3000","redirecturl":"https:\/\/mythemestore.com\/beehive-preview\/activity\/","bp_is_active":"1","icon_logo_url":"https:\/\/mythemestore.com\/beehive-preview\/wp-content\/themes\/beehive\/assets\/images\/logo-icon.svg"};
-    /* ]]> */
-    </script>
-    <script type='text/javascript' src='../wp-content/themes/beehive/assets/js/beehive-login.min1159.js?ver=1.4.2'></script>
-    <script type='text/javascript' src='../wp-content/themes/beehive/assets/js/sticky-kit.min1159.js?ver=1.4.2'></script>
-    <script type='text/javascript' src='../wp-includes/js/imagesloaded.min55a0.js?ver=3.2.0'></script>
-    <script type='text/javascript' src='../wp-includes/js/masonry.mind617.js?ver=3.3.2'></script>
-    <script type='text/javascript'>
-    /* <![CDATA[ */
-    var beehive_data = {"ajaxurl":"https:\/\/mythemestore.com\/beehive-preview\/wp-admin\/admin-ajax.php","beehive_search_nonce":"497f531add","avatar":"<img alt='' src='https:\/\/secure.gravatar.com\/avatar\/?s=24&d=mm&r=g' srcset='https:\/\/secure.gravatar.com\/avatar\/?s=48&d=mm&r=g 2x' class='avatar avatar-24 photo avatar-default' height='24' width='24' \/>","mobile_logo_url":null,"light_modal":null,"user_nav":"1","stick_offset":"90","more_text":"More","read_more":"Read more","read_close":"Close","like_msg":"Like this","unlike_msg":"Unlike this","attachment_text":"Attach media","activity_max":"3000","redirecturl":"https:\/\/mythemestore.com\/beehive-preview\/activity\/","bp_is_active":"1","icon_logo_url":"https:\/\/mythemestore.com\/beehive-preview\/wp-content\/themes\/beehive\/assets\/images\/logo-icon.svg"};
-    /* ]]> */
-    </script>
-    <script type='text/javascript' src='../wp-content/themes/beehive/assets/js/beehive.min1159.js?ver=1.4.2'></script>
-    <script type='text/javascript' src='../wp-content/plugins/buddypress-media/lib/media-element/mediaelement-and-player.min13f7.js?ver=4.6.6'></script>
-    <script type='text/javascript' src='../wp-content/plugins/buddypress-media/lib/touchswipe/jquery.touchSwipe.min13f7.js?ver=4.6.6'></script>
-    <script type='text/javascript' src='../wp-includes/js/wp-embed.min03e2.js?ver=5.4.6'></script>
+        <!-- Modal: Invite -->
+        <div class="modal fade" id="modal-invite" tabindex="-1" aria-labelledby="modal-invite" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-fullscreen-xl-down">
+                <div class="modal-content">
 
-        </body>
+                    <!-- Modal: Body -->
+                    <div class="modal-body py-0">
+                        <!-- Header -->
+                        <div class="profile modal-gx-n">
+                            <div class="profile-img text-primary rounded-top-xl">
+                                <svg xmlns="/images/{{Auth::user()->cover_bg}}" fill="currentColor" viewBox="0 0 400 140.74"><defs><style>.cls-2{fill:#fff;opacity:0.1;}</style></defs><g><g><path d="M400,125A1278.49,1278.49,0,0,1,0,125V0H400Z"/><path class="cls-2" d="M361.13,128c.07.83.15,1.65.27,2.46h0Q380.73,128,400,125V87l-1,0a38,38,0,0,0-38,38c0,.86,0,1.71.09,2.55C361.11,127.72,361.12,127.88,361.13,128Z"/><path class="cls-2" d="M12.14,119.53c.07.79.15,1.57.26,2.34v0c.13.84.28,1.66.46,2.48l.07.3c.18.8.39,1.59.62,2.37h0q33.09,4.88,66.36,8,.58-1,1.09-2l.09-.18a36.35,36.35,0,0,0,1.81-4.24l.08-.24q.33-.94.6-1.9l.12-.41a36.26,36.26,0,0,0,.91-4.42c0-.19,0-.37.07-.56q.11-.86.18-1.73c0-.21,0-.42,0-.63,0-.75.08-1.51.08-2.28a36.5,36.5,0,0,0-73,0c0,.83,0,1.64.09,2.45C12.1,119.15,12.12,119.34,12.14,119.53Z"/><circle class="cls-2" cx="94.5" cy="57.5" r="22.5"/><path class="cls-2" d="M276,0a43,43,0,0,0,43,43A43,43,0,0,0,362,0Z"/></g></g></svg>
 
-    <!-- Mirrored from mythemestore.com/beehive-preview/activity/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 23 Aug 2021 03:30:09 GMT -->
-    </html>
+                                <div class="position-absolute top-0 start-0 p-5">
+                                    <button type="button" class="btn-close btn-close-white btn-close-arrow opacity-100" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                            </div>
+
+                            <div class="profile-body">
+                                <div class="avatar avatar-lg">
+                                    <span class="avatar-text bg-primary">
+                                        <svg xmlns="/images/{{Auth::user()->cover_bg}}" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-plus"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+                                    </span>
+                                </div>
+
+                                <h4 class="fw-bold mb-1">Invite your friends</h4>
+                                <p style="font-size: 16px;">Send invitation links to your friends</p>
+                            </div>
+                        </div>
+                        <!-- Header -->
+
+                        <hr class="hr-bold modal-gx-n my-0">
+
+                        <!-- Form -->
+                        <div class="modal-py">
+                            <form class="row gy-6">
+                                <div class="col-12">
+                                    <label for="invite-email" class="form-label text-muted">E-mail</label>
+                                    <input type="email" class="form-control form-control-lg" id="invite-email" placeholder="name@example.com">
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="invite-message" class="form-label text-muted">Message</label>
+                                    <textarea class="form-control form-control-lg" id="invite-message" rows="3" placeholder="Custom message"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Form -->
+
+                        <hr class="hr-bold modal-gx-n my-0">
+
+                        <!-- Button -->
+                        <div class="modal-py">
+                            <a href="#" class="btn btn-lg btn-primary w-100 d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#invite-modal">
+                                Send
+
+                                <span class="icon ms-auto">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                                </span>
+                            </a>
+                        </div>
+                        <!-- Button -->
+                    </div>
+                    <!-- Modal: Body -->
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal: Profile -->
+        <div class="modal fade" id="modal-profile" tabindex="-1" aria-labelledby="modal-profile" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-fullscreen-xl-down">
+                <div class="modal-content">
+
+                    <!-- Modal body -->
+                    <div class="modal-body py-0">
+                        <!-- Header -->
+                        <div class="profile modal-gx-n">
+                            <div class="profile-img text-primary rounded-top-xl">
+                                {{-- <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 400 140.74"><defs><style>.cls-2{fill:#fff;opacity:0.1;}</style></defs><g><g><path d="M400,125A1278.49,1278.49,0,0,1,0,125V0H400Z"/><path class="cls-2" d="M361.13,128c.07.83.15,1.65.27,2.46h0Q380.73,128,400,125V87l-1,0a38,38,0,0,0-38,38c0,.86,0,1.71.09,2.55C361.11,127.72,361.12,127.88,361.13,128Z"/><path class="cls-2" d="M12.14,119.53c.07.79.15,1.57.26,2.34v0c.13.84.28,1.66.46,2.48l.07.3c.18.8.39,1.59.62,2.37h0q33.09,4.88,66.36,8,.58-1,1.09-2l.09-.18a36.35,36.35,0,0,0,1.81-4.24l.08-.24q.33-.94.6-1.9l.12-.41a36.26,36.26,0,0,0,.91-4.42c0-.19,0-.37.07-.56q.11-.86.18-1.73c0-.21,0-.42,0-.63,0-.75.08-1.51.08-2.28a36.5,36.5,0,0,0-73,0c0,.83,0,1.64.09,2.45C12.1,119.15,12.12,119.34,12.14,119.53Z"/><circle class="cls-2" cx="94.5" cy="57.5" r="22.5"/><path class="cls-2" d="M276,0a43,43,0,0,0,43,43A43,43,0,0,0,362,0Z"/></g></g></svg> --}}
+
+                                <div class="position-absolute top-0 start-0 py-6 px-5">
+                                    <button type="button" class="btn-close btn-close-white btn-close-arrow opacity-100" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                            </div>
+
+                            <div class="profile-body">
+                                <div class="avatar avatar-xl">
+                                    <img class="avatar-img" src="/images/{{Auth::user()->avatar}}" alt="#">
+                                </div>
+
+                                <h4 class="mb-1">{{Auth::user()->name}}</h4>
+                                <p>@if(Cache::has('user-is-online-' . Auth::user()->id))
+                                    <span class="text-success" style="color: green"><b>Online</b></span>
+                                    @else
+                                      <span class="text-secondary" style="color: red">Offline</span>
+                                        @endif      </p>
+                            </div>
+                        </div>
+                        <!-- Header -->
+
+                        <hr class="hr-bold modal-gx-n my-0">
+
+                        <!-- List -->
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div class="row align-items-center gx-6">
+                                    <div class="col">
+                                        <h5>Location</h5>
+                                        <p>{{Auth::user()->provinsi}} - {{Auth::user()->kabupaten}}</p>
+                                    </div>
+
+                                    <div class="col-auto">
+                                        <div class="btn btn-sm btn-icon btn-dark">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="list-group-item">
+                                <div class="row align-items-center gx-6">
+                                    <div class="col">
+                                        <h5>E-mail</h5>
+                                        <p>{{Auth::user()->email}}</p>
+                                    </div>
+
+                                    <div class="col-auto">
+                                        <div class="btn btn-sm btn-icon btn-dark">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="list-group-item">
+                                <div class="row align-items-center gx-6">
+                                    <div class="col">
+                                        <h5>Phone</h5>
+                                        <p>{{Auth::user()->nomer_wa}}</p>
+                                    </div>
+
+                                    <div class="col-auto">
+                                        <div class="btn btn-sm btn-icon btn-dark">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone-call"><path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <!-- List  -->
+
+                        <hr class="hr-bold modal-gx-n my-0">
+
+                        
+
+                        <hr class="hr-bold modal-gx-n my-0">
+
+                        <!-- List -->
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <a href="/profile" class="text-reset" >Edit Profile</a>
+                            </li>
+
+                            <li class="list-group-item">
+                                <a href="{{ route('logout') }}" class="text-danger" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" >Logout</a>
+                                {{-- <a href="{{ route('logout') }}" class="text-danger" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> --}}
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                </form>
+                            </li>
+                        </ul>
+                        <!-- List -->
+                    </div>
+                    <!-- Modal body -->
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal: User profile -->
+        <div class="modal fade" id="modal-user-profile" tabindex="-1" aria-labelledby="modal-user-profile" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-fullscreen-xl-down">
+                <div class="modal-content">
+
+                    <!-- Modal body -->
+                    <div class="modal-body py-0">
+                        <!-- Header -->
+                        <div class="profile modal-gx-n">
+                            <div class="profile-img text-primary rounded-top-xl">
+                                <img xmlns="/images/{{Auth::user()->cover_bg}}" fill="currentColor" viewBox="0 0 400 140.74"><defs><style>.cls-2{fill:#fff;opacity:0.1;}</style></defs></img>
+
+                                <div class="position-absolute top-0 start-0 p-5">
+                                    <button type="button" class="btn-close btn-close-white btn-close-arrow opacity-100" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                            </div>
+
+                            <div class="profile-body">
+                                <div class="avatar avatar-xl">
+                                    <img class="avatar-img" src="assets/img/avatars/9.jpg" alt="#">
+
+                                    <a href="#" class="badge badge-lg badge-circle bg-primary text-white border-outline position-absolute bottom-0 end-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                    </a>
+                                </div>
+
+                                <h4 class="mb-1">William Wright</h4>
+                                <p>last seen 5 minutes ago</p>
+                            </div>
+                        </div>
+                        <!-- Header -->
+
+                        <hr class="hr-bold modal-gx-n my-0">
+
+                        <!-- List -->
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div class="row align-items-center gx-6">
+                                    <div class="col">
+                                        <h5>Location</h5>
+                                        <p>USA, Houston</p>
+                                    </div>
+
+                                    <div class="col-auto">
+                                        <div class="btn btn-sm btn-icon btn-dark">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="list-group-item">
+                                <div class="row align-items-center gx-6">
+                                    <div class="col">
+                                        <h5>E-mail</h5>
+                                        <p>william@studio.com</p>
+                                    </div>
+
+                                    <div class="col-auto">
+                                        <div class="btn btn-sm btn-icon btn-dark">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="list-group-item">
+                                <div class="row align-items-center gx-6">
+                                    <div class="col">
+                                        <h5>Phone</h5>
+                                        <p>1-800-275-2273</p>
+                                    </div>
+
+                                    <div class="col-auto">
+                                        <div class="btn btn-sm btn-icon btn-dark">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone-call"><path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <!-- List -->
+
+                        <hr class="hr-bold modal-gx-n my-0">
+
+                        <!-- List -->
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div class="row align-items-center gx-6">
+                                    <div class="col">
+                                        <h5>Notifications</h5>
+                                        <p>Enable sound notifications</p>
+                                    </div>
+
+                                    <div class="col-auto">
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="user-notification-check">
+                                            <label class="form-check-label" for="user-notification-check"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <!-- List -->
+
+                        <hr class="hr-bold modal-gx-n my-0">
+
+                        <!-- List -->
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <a href="#" class="text-reset">Send Message</a>
+                            </li>
+
+                            <li class="list-group-item">
+                                <a href="#" class="text-danger">Block User</a>
+                            </li>
+                        </ul>
+                        <!-- List -->
+                    </div>
+                    <!-- Modal body -->
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal: Media Preview -->
+        <div class="modal fade" id="modal-media-preview" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered modal-fullscreen-xl-down">
+                <div class="modal-content">
+
+                    <!-- Modal: Header -->
+                    <div class="modal-header">
+                        <button type="button" class="btn-close btn-close-arrow" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                        <div>
+                            <!-- Dropdown -->
+                            <div class="dropdown">
+                                <a class="icon text-muted" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                                </a>
+
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item d-flex align-items-center" href="#">
+                                            Download
+                                            <div class="icon ms-auto">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download-cloud"><polyline points="8 17 12 21 16 17"></polyline><line x1="12" y1="12" x2="12" y2="21"></line><path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"></path></svg>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item d-flex align-items-center" href="#">
+                                            Share
+                                            <div class="icon ms-auto">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share-2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <a class="dropdown-item d-flex align-items-center text-danger" href="#">
+                                            <span class="me-auto">Delete</span>
+                                            <div class="icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- Dropdown -->
+                        </div>
+                    </div>
+                    <!-- Modal: Header -->
+
+                    <!-- Modal: Body -->
+                    <div  class="modal-body p-0">
+                        <div class="d-flex align-items-center justify-content-center h-100">
+                            <img class="img-fluid modal-preview-url" src="#" alt="#">
+                        </div>
+                    </div>
+                    <!-- Modal: Body -->
+
+                    <!-- Modal: Footer -->
+                    <div class="modal-footer">
+                        <div class="w-100 text-center">
+                            <h6><a href="#">Marshall Wallaker</a></h6>
+                            <p class="small">Today at 14:43</p>
+                        </div>
+                    </div>
+                    <!-- Modal: Footer -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="{{ url('chat/assets/js/vendor.js') }}"></script>
+        <script src="{{ url('chat/assets/js/template.js') }}"></script>
+    </body>
+
+<!-- Mirrored from offsetcode.com/themes/messenger/2.1.0/chat-group.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Sep 2021 01:41:21 GMT -->
+</html>

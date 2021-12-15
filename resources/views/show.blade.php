@@ -24,10 +24,10 @@
         <!-- Layout -->
         <div class="layout overflow-hidden">
             <!-- Navigation -->
-            <nav class="navigation d-flex flex-column text-center navbar navbar-light hide-scrollbar">
+            <nav class="navigation d-flex flex-column text-center navbar navbar-light hide-scrollbar" style="width: 200px; background-color: rgb(240, 240, 240)">
                 <!-- Brand -->
                 <a href="/" title="Honda Camp" class="d-none d-xl-block mb-6">
-                    <img loading="lazy" src="/images/logohondacamp.jpg" class="avatar group-4-avatar avatar-200 photo" width="200" height="200" style="background-color: white" alt="Group logo of Backpakers Club">
+                    <img loading="lazy" src="/images/logohondacamp.jpg" class="avatar group-4-avatar avatar-200 photo" width="400" height="400" style="background-color: white" alt="Group logo of Backpakers Club">
 
                 </a>
 
@@ -102,7 +102,7 @@
                     <!-- Profile -->
                     <li class="nav-item">
                         <a href="#" class="nav-link p-0 mt-lg-2" data-bs-toggle="modal" data-bs-target="#modal-profile">
-                            <div class="avatar mx-auto d-none d-xl-block">
+                            <div class="avatar mx-auto d-none d-xl-block" style="width: 44px; height: 44px">
                                 <img class="avatar-img" src="/images/{{Auth::user()->avatar}}" alt="">
                             </div>
                             <div class="avatar avatar-online avatar-xs d-xl-none">
@@ -118,10 +118,13 @@
         
 
             <!-- Chat -->
-            <main class="main is-visible" data-dropzone-area="">
-                <div class="container h-100" style="max-width: 1250px">
+            <main class="main is-visible" data-dropzone-area="" style="overflow: scroll; overflow-x: hidden">
+                <div style="padding-bottom: 20px; background-color: rgb(240, 240, 240)">
+                    <img src="/images/{{ $post->file }}" alt="" style="width: 100%;height:250px;">
+                </div>
+                <div class="row " >
 
-                    <div class="d-flex flex-column h-100 position-relative">
+                    <div class="col-lg-8 d-flex flex-column h-100 position-relative">
                         <!-- Chat: Header -->
                         <div class="chat-header border-bottom py-4 py-lg-7">
                             <div class="row align-items-center">
@@ -134,29 +137,7 @@
                                 </div>
                                 <!-- Mobile: close -->
 
-                                <!-- Content -->
-                                <div class="col-8 col-xl-12">
-                                    <div class="row align-items-center text-center text-xl-start">
-                                        <!-- Title -->
-                                        <div class="col-12 col-xl-6">
-                                            <div class="row align-items-center gx-5">
-                                                <div class="col-auto">
-                                                    <div class="avatar d-none d-xl-inline-block">
-                                                        <img class="avatar-img" src="assets/img/avatars/bootstrap.svg" alt="">
-                                                    </div>
-                                                </div>
-
-                                                <div class="col overflow-hidden">
-                                                    <h5 class="text-truncate">{{ $post->title }}</h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Title -->
-
-                                        
-                                    </div>
-                                </div>
-                                <!-- Content -->
+                            
 
                                 <!-- Mobile: more -->
                                 <div class="col-2 d-xl-none text-end">
@@ -182,11 +163,29 @@
                             </div>
                         </div>
                         <!-- Chat: Header -->
-
                         @comments(['model' => $post])
-
-                        
                     </div>
+
+                    <div class="col lg-4" style="padding-bottom: 20px; margin-right: 20px; background-color: rgb(240, 240, 240)">
+                        <div style="background-color: rgb(224, 224, 224); padding: 20px">
+                            <h3>Daftar Group</h3>
+                        </div>
+                        <div style="background-color: rgb(255, 255, 255); padding: 20px">
+                            @php $groups = DB::table('posts')->orderBy('created_at', 'desc')->take(5)->get(); @endphp
+                            @foreach($groups as $group)
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                       <p style="font-weight: 600; text-transform: capitalize">{{ $group->title }}</p>
+                                    </div>
+                                    <div class="col-lg-3" >
+                                        <a href="#" class="border border-gray-200 font-semibold px-4 py-1 rounded-full hover:bg-red-600 hover:text-white hover:border-red-600 dark:border-gray-800"> Lihat </a>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+
+                    
 
                 </div>
             </main>

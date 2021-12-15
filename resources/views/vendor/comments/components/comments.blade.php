@@ -18,7 +18,7 @@
 }
 
 .hidden-scrollbar .inner {
-  height:450px;
+  height:250px;
   overflow:auto;
   margin:15px -300px 15px 15px;
   padding-right:300px; /* Samakan dengan besar margin negatif */

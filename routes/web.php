@@ -14,8 +14,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/member', function () {
-    return view('member');
+Route::get('/tes', function () {
+    return view('show');
 });
 
 Auth::routes();

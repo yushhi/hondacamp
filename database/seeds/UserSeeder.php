@@ -86,11 +86,11 @@ class UserSeeder extends Seeder
             'email_verified_at' => \Carbon\Carbon::now()
         ]);
 
-        DB::table('posts')->insert([
-            'title' => 'judul1',
-            'body' => 'asdasdasdasdasdasdasd',
-            'created_at' => \Carbon\Carbon::now(),
-        ]);
+        // DB::table('posts')->insert([
+        //     'title' => 'judul1',
+        //     'body' => 'asdasdasdasdasdasdasd',
+        //     'created_at' => \Carbon\Carbon::now(),
+        // ]);
 
         DB::table('artikels')->insert([
             'judul' => 'artikel 1',

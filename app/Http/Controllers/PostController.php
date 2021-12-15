@@ -40,14 +40,30 @@ class PostController extends Controller
 
     public function post(Request $request)
     {
-        $request->validate([
-            'title' => 'required|max:255|min:3',
-            'body' => 'required|min:3',
-        ]);
+        $this->validate($request, [
+			'title' => 'required',
+			'body' => 'required',
+            'profile' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
+			'file' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
+		]);
+
+        // menyimpan data file yang diupload ke variabel $file
+        $profile = $request->file('profile');
+		$file = $request->file('file');
+
+        $nama_profile = time()."_".$profile->getClientOriginalName();
+		$nama_file = time()."_".$file->getClientOriginalName();
+
+      	        // isi dengan nama folder tempat kemana file diupload
+		$tujuan_upload = 'images';
+        $profile->move($tujuan_upload,$nama_profile);
+		$file->move($tujuan_upload,$nama_file);
 
         Post::create([
             'title' => $request->title,
             'body' => $request->body,
+            'profile' => $nama_profile,
+            'file' => $nama_file,
         ]);
 
         return redirect('dashboard')->with('statusGroup', 'Data Berhasil Dibuat');

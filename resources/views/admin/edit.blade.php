@@ -52,6 +52,16 @@
                         <textarea class="summernote-simple" name="body" id="task-textarea" rows="5" placeholder="adadad">{!! $group->body !!}</textarea>
                       </div>
                     </div>
+
+                    <div class="form-group row mb-4">
+                      <img class="col-sm-12 col-md-12" width="300px" src="{{ url('/images/'.$group->file) }}">
+                    </div>
+
+                    <div class="form-group row mb-4">
+                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3" for="exampleInputEmail1">Cover Group</label>
+                      <input name="file" type="file" class="col-sm-12 col-md-7">
+                    </div>
+
                   </div>
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>

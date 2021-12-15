@@ -80,7 +80,7 @@
                             <div
                             class="bg-red-500 max-w-full h-32 rounded-lg relative overflow-hidden uk-transition-toggle">
                             <a href="/group/{{ $post->id }}" uk-toggle>
-                                <img src="/images/logohondacamp.jpg" class="w-full h-full absolute object-cover inset-0 scale-150 transform">
+                                <img src="/images/{{ $post->profile }}" class="w-full h-full">
                             </a>
                         </div>
                         </div>

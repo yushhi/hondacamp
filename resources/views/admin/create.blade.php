@@ -39,7 +39,7 @@
                     <h4>Buat Group</h4>
                   </div>
                   <div class="card-body">
-                    <form method="POST" action="/dashboard">
+                    <form method="POST" action="/dashboard" enctype="multipart/form-data">
                       @csrf
                       <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Judul</label>
@@ -53,6 +53,14 @@
                         <textarea class="summernote-simple" name="body" id="task-textarea" rows="5" placeholder="Keterangan"></textarea>
                       </div>
                     </div>
+                  </div>
+                  <div class="form-group row mb-4">
+                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3" for="exampleInputEmail1">Profile Group</label>
+                      <input name="profile" type="file" class="col-sm-12 col-md-7">
+                  </div>
+                  <div class="form-group row mb-4">
+                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3" for="exampleInputEmail1">Cover Group</label>
+                      <input name="file" type="file" class="col-sm-12 col-md-7">
                   </div>
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>

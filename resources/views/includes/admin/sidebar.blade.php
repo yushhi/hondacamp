@@ -7,7 +7,15 @@
         <a href="#">Dashboard</a>
       </div>
       <ul class="sidebar-menu">
-          <li class="menu-header">Dashboard</li>
+
+          <li>
+            <a class="nav-link" href="/">
+              <i class="fas fa-home"></i>
+              <span>Home</span>
+            </a>
+          </li>
+
+           <li class="menu-header">Dashboard</li>
 
           <li>
             <a class="nav-link" href="/dashboard">
@@ -18,38 +26,38 @@
 
           <li>
             <a class="nav-link" href="{{ route('tambahGroup') }}">
-              <i class="far fa-square"></i> 
+              <i class="fas fa-users"></i>
               <span>Tambah Group</span>
             </a>
           </li>  
 
           <li>
             <a class="nav-link" href="{{ route('tambahArtikel') }}">
-              <i class="far fa-clone"></i> 
+             <i class="far fa-newspaper"></i>
               <span>Tambah Artikel</span>
             </a>
           </li>  
 
-          <li>
+          {{-- <li>
             <a class="nav-link" href="{{ route('category.create') }}">
-              <i class="far fa-clone"></i> 
+              <i class="fas fa-car"></i>
               <span>Tambah Kategori</span>
             </a>
-          </li> 
-          
-          <li>
-            <a class="nav-link" href="{{ route('subcategory.create') }}">
-              <i class="far fa-clone"></i> 
-              <span>Tambah Type</span>
-            </a>
-          </li> 
+          </li>  --}}
 
           <li>
             <a class="nav-link" href="/slider">
-              <i class="far fa-clone"></i> 
+              <i class="far fa-image"></i>
               <span>Slider</span>
             </a>
           </li>
+
+          <li>
+            <a class="nav-link" href="{{ route('subcategory.create') }}">
+             <i class="fas fa-car-side"></i>
+              <span>Tambah Type</span>
+            </a>
+          </li> 
 
           <li>
             <a class="nav-link" href="{{ route('category.index') }}">

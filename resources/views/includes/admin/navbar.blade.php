@@ -11,18 +11,11 @@
         <img alt="image" src="../tema/assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
         <div class="d-sm-none d-lg-inline-block">Halo <b>{{ Auth::user()->name }}</b></div></a>
         <div class="dropdown-menu dropdown-menu-right">
-          <a href="features-profile.html" class="dropdown-item has-icon">
-            <i class="far fa-user"></i> Profile
-          </a>
-          <a href="features-activities.html" class="dropdown-item has-icon">
-            <i class="fas fa-bolt"></i> Activities
-          </a>
-          <a href="features-settings.html" class="dropdown-item has-icon">
-            <i class="fas fa-cog"></i> Settings
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item has-icon text-danger">
-            <i class="fas fa-sign-out-alt"></i> Logout
+          <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"  class="dropdown-item has-icon text-danger">
+           <i class="fas fa-sign-out-alt"></i> Logout
+            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+              @csrf
+            </form>
           </a>
         </div>
       </li>

@@ -10,13 +10,13 @@
 			<link rel="profile" href="http://gmpg.org/xfn/11">
 
 			
-		<link rel="alternate" type="application/rss+xml" title="Komunitas DPS | Site Wide Activity RSS Feed" href="https://mythemestore.com/beehive-preview/activity/feed/" />
+		<link rel="alternate" type="application/rss+xml" title="Komunitas Honda Camp" href="https://mythemestore.com/beehive-preview/activity/feed/" />
 
-			<title>Komunitas DPS</title>
+			<title>Komunitas Honda Camp</title>
 	<link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
 	<link rel='dns-prefetch' href='http://s.w.org/' />
-	<link rel="alternate" type="application/rss+xml" title="Komunitas DPS &raquo; Feed" href="https://mythemestore.com/beehive-preview/feed/" />
-	<link rel="alternate" type="application/rss+xml" title="Komunitas DPS &raquo; Comments Feed" href="https://mythemestore.com/beehive-preview/comments/feed/" />
+	<link rel="alternate" type="application/rss+xml" title="Komunitas Honda Camp &raquo; Feed" href="https://mythemestore.com/beehive-preview/feed/" />
+	<link rel="alternate" type="application/rss+xml" title="Komunitas Honda Camp &raquo; Comments Feed" href="https://mythemestore.com/beehive-preview/comments/feed/" />
 			<script type="text/javascript">
 				window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/mythemestore.com\/beehive-preview\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.4.6"}};
 				/*! This file is auto-generated */
@@ -104,9 +104,9 @@
 
 		<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
 		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
-		<link rel="icon" href="../images/favicon.png" sizes="32x32" />
-		<link rel="icon" href="../images/favicon.png" sizes="192x192" />
-		<link rel="apple-touch-icon" href="../images/favicon.png" />
+		<link rel="icon" href="../images/logohondacamp.jpg" sizes="32x32" />
+		<link rel="icon" href="../images/logohondacamp.jpg" sizes="192x192" />
+		<link rel="apple-touch-icon" href="../images/logohondacamp.jpg" />
 	<meta name="msapplication-TileImage" content="https://mythemestore.com/beehive-preview/wp-content/uploads/2020/01/cropped-site-icon-270x270.png" />
 		</head>
 
@@ -124,7 +124,7 @@
 		<nav class="navbar beehive-navbar default fixed-top">
 			<div class="container">
 				<a class="navbar-brand" href="/">
-					<img src="images/logopng.png" title="Komunitas DPS" alt="Komunitas DPS" class="default-logo" />
+					<img src="images/logohondacamp.jpg" title="Komunitas Honda Camp" alt="Komunitas Honda Camp" class="default-logo" />
 				</a>
 				<button class="beehive-toggler navbar-icon" type="button">
 					<span class="icon-bar bar1"></span>
@@ -135,10 +135,8 @@
 					<div class="menu-label">
 						<span class="h5">Main Menu</span>
 					</div>
-						<ul id="menu-header-menu" class="navbar-nav navbar-main"><li  id="menu-item-110" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-110 nav-item"><a title="Home" href="/" class="nav-link">Group</a></li>
-							<li  id="menu-item-111" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-64 current_page_item current_page_parent active menu-item-111 nav-item"><a title="Blog" href="artikel" class="nav-link">Artikel</a></li>
-							<li  id="menu-item-819" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-819 nav-item"><a title="Contact" href="#" class="nav-link">Member</a></li>
-							<li  id="menu-item-819" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-819 nav-item"><a title="Contact" href="https://www.youtube.com/channel/UCgJErfj2XBqXDdQBuPjdjDw" target="_blank" class="nav-link">Video</a></li>
+						<ul id="menu-header-menu" class="navbar-nav navbar-main"><li  id="menu-item-110" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-110 nav-item"><a title="Home" href="/group" class="nav-link">Group</a></li>
+							<li  id="menu-item-111" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-64 current_page_item current_page_parent active menu-item-111 nav-item"><a title="Blog" href="/" class="nav-link">Artikel</a></li>
 							<li  id="menu-item-819" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-819 nav-item"><a title="Contact" href="profile" class="nav-link">Profile</a></li>
 						</ul>
 					</div>
@@ -152,16 +150,10 @@
                     <div class="dropdown-menu" aria-labelledby="nav_my_account">
                         <ul id="menu-account-menu" class="member-account-menu">
                             <li id="menu-item-84" class="bp-menu bp-activity-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-84">
-                                <a href="/artikel">Artikel</a>
+                                <a href="/">Artikel</a>
                             </li>
                             <li id="menu-item-84" class="bp-menu bp-activity-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-84">
                                 <a href="/group">Group</a>
-                            </li>
-                            <li id="menu-item-84" class="bp-menu bp-activity-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-84">
-                                <a href="">Member</a>
-                            </li>
-                            <li id="menu-item-84" class="bp-menu bp-activity-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-84">
-                                <a href="">Video</a>
                             </li>
                             <li id="menu-item-84" class="bp-menu bp-activity-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-84">
                                 <a href="/profile">Profile</a>
