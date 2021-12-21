@@ -2,7 +2,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Favicon -->
-    <link href="assetsuser/images/favicon.png" rel="icon" type="image/png">
+    <link href="images/logohondacamp.jpg" rel="icon" type="image/png">
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -18,7 +18,7 @@
     <title>Honda Camp</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Honda Camp - Sharing Photos platform">
+    <meta name="description" content="Honda Camp">
 
     <!-- icons
     ================================================== -->

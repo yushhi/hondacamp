@@ -80,22 +80,21 @@ class ArtikelController extends Controller
 	{
 		$artikel = Artikel::findorfail($id);
 		$artikel->update($request->all());
-		// menyimpan data file yang diupload ke variabel $file
+        // menyimpan data file yang diupload ke variabel $file
 		$file = $request->file('file');
 
-		$nama_file = time()."_".$file->getClientOriginalName();
-
-      	        // isi dengan nama folder tempat kemana file diupload
-		$tujuan_upload = 'images';
-		$file->move($tujuan_upload,$nama_file);
-
-		Artikel::where('id', $id)->update([
-			'judul' => $request->judul,
-			'keterangan' => $request->keterangan,
-			'file' => $nama_file,
-		]);
-
-
+        if($request->hasFile('file')){
+            $file = request()->file('file');
+            $nama_file = time() . '.' . $file->getClientOriginalExtension();
+            $tujuan_upload = public_path('/images/');
+            $file->move($tujuan_upload, $nama_file);
+            
+            Artikel::where('id', $id)->update([
+                'judul' => $request->judul,
+                'keterangan' => $request->keterangan,
+                'file' => $nama_file,
+            ]);
+        }
 
 		return redirect('dashboard')->with('statusGroup', 'Data Berhasil Dirubah');
 	}

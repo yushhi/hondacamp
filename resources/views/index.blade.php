@@ -64,10 +64,10 @@
                 @foreach($sliders as $slider)
                     <div class="item-media"> 
                         <img 
-                        style="width: 100%;height: 15rem; border-radius: 10px; box-shadow: 0 4px 8px 0 rgba(92, 92, 92, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" 
+                        style="width: 100%;height: 20rem; border-radius: 10px; box-shadow: 0 4px 8px 0 rgba(92, 92, 92, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" 
                         src="{{ url('/images/'.$slider->file) }}" alt="">
                     </div>
-                    @endforeach
+                @endforeach
                 
                 @php $groups = DB::table('posts')->orderBy('created_at', 'desc')->get(); @endphp
                 <div class="my-3 grid lg:grid-cols-4 grid-cols-2 gap-3 hover:text-yellow-700 uk-link-reset">
@@ -80,7 +80,7 @@
                             <div
                             class="bg-red-500 max-w-full h-32 rounded-lg relative overflow-hidden uk-transition-toggle">
                             <a href="/group/{{ $post->id }}" uk-toggle>
-                                <img src="/images/{{ $post->profile }}" class="w-full h-full">
+                                <img src="/images/{{ $post->file }}" class="w-full h-full">
                             </a>
                         </div>
                         </div>

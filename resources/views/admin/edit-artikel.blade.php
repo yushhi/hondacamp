@@ -37,7 +37,7 @@
                     <h4>Edit Artikel</h4>
                   </div>
                   <div class="card-body">
-                    <form action="/update-artikel/{{$artikel->id}}" method="POST" enctype="multipart/form-data">
+                    <form action="/updateArtikel/{{$artikel->id}}" method="POST" enctype="multipart/form-data">
                       {{-- @csrf --}}
                       {{-- @method('PATCH') --}}
                       {{ csrf_field() }}

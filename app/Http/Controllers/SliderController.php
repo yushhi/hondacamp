@@ -76,7 +76,7 @@ class SliderController extends Controller
             ]);
         }
         
-		return redirect('editSlider')->with('statusSlider', 'Data Berhasil Dirubah');
+		return redirect('dashboard')->with('statusSlider', 'Data Berhasil Dirubah');
     }
 
     public function destroy($id)

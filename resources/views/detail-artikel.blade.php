@@ -98,9 +98,9 @@
     <meta name="generator" content="WordPress 5.4.6" />
     <meta name="generator" content="WooCommerce 4.8.0" />
     <link rel="canonical" href="index.html" />
-    <link rel="icon" href="../images/favicon.png" sizes="32x32" />
-    <link rel="icon" href="../images/favicon.png" sizes="192x192" />
-    <link rel="apple-touch-icon" href="../images/favicon.png" />
+    <link rel="icon" href="../images/logohondacamp.jpg" sizes="32x32" />
+    <link rel="icon" href="../images/logohondacamp.jpg" sizes="192x192" />
+    <link rel="apple-touch-icon" href="../images/logohondacamp.jpg" />
     <meta name="framework" content="Redux 4.1.24" />
     <style type="text/css" media="all">
 
@@ -110,9 +110,9 @@
 
     <link rel="pingback" href="https://mythemestore.com/beehive-preview/xmlrpc.php">	<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
     <style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
-		<link rel="icon" href="../images/favicon.png" sizes="32x32" />
-		<link rel="icon" href="../images/favicon.png" sizes="192x192" />
-		<link rel="apple-touch-icon" href="../images/favicon.png" />
+		<link rel="icon" href="../images/logohondacamp.jpg" sizes="32x32" />
+		<link rel="icon" href="../images/logohondacamp.jpg" sizes="192x192" />
+		<link rel="apple-touch-icon" href="../images/logohondacamp.jpg" />
     <meta name="msapplication-TileImage" content="https://mythemestore.com/beehive-preview/wp-content/uploads/2020/01/cropped-site-icon-270x270.png" />
         </head>
 
@@ -144,8 +144,6 @@
                     </div>
                     <ul id="menu-header-menu" class="navbar-nav navbar-main"><li  id="menu-item-110" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-110 nav-item"><a title="Home" href="/group" class="nav-link">Group</a></li>
 							<li  id="menu-item-111" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-64 current_page_item current_page_parent active menu-item-111 nav-item"><a title="Blog" href="/" class="nav-link">Artikel</a></li>
-							<li  id="menu-item-819" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-819 nav-item"><a title="Contact" href="#" class="nav-link">Member</a></li>
-							<li  id="menu-item-819" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-819 nav-item"><a title="Contact" href="https://www.youtube.com/channel/UCgJErfj2XBqXDdQBuPjdjDw" target="_blank" class="nav-link">Video</a></li>
 							<li  id="menu-item-819" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-819 nav-item"><a title="Contact" href="/profile" class="nav-link">Profile</a></li>
 						</ul>
                     </div>
@@ -159,16 +157,10 @@
                     <div class="dropdown-menu" aria-labelledby="nav_my_account">
                         <ul id="menu-account-menu" class="member-account-menu">
                             <li id="menu-item-84" class="bp-menu bp-activity-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-84">
-                                <a href="/artikel">Artikel</a>
+                                <a href="/">Artikel</a>
                             </li>
                             <li id="menu-item-84" class="bp-menu bp-activity-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-84">
                                 <a href="/group">Group</a>
-                            </li>
-                            <li id="menu-item-84" class="bp-menu bp-activity-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-84">
-                                <a href="">Member</a>
-                            </li>
-                            <li id="menu-item-84" class="bp-menu bp-activity-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-84">
-                                <a href="">Video</a>
                             </li>
                             <li id="menu-item-84" class="bp-menu bp-activity-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-84">
                                 <a href="/profile">Profile</a>
@@ -242,53 +234,6 @@
 
     </div>
             </article><!-- #post-259 -->
-    
-        <div class="related-posts animate-item slideInUp" style="margin-top: 80px">
-            <div class="block-title center">
-                <h3>Artikel Terbaru</h3>
-            </div>
-            @php $artikels = DB::table('artikels')->orderBy('created_at', 'desc')->take(2)->get(); @endphp
-            <div class="blog-layout-grid grid-columns-2">
-            @foreach($artikels as $a)
-                <article id="post-251" class="post-251 post type-post status-publish format-standard has-post-thumbnail hentry category-technology category-traveling tag-blackholes tag-stars beehive-post">
-                    <div class="entry-wrapper">
-                        <div class="entry-thumbnail">
-                            <div class="post-medias">
-                                <div class="item-media">
-                                    <span style="background-image: url('{{ url('/images/'.$a->file) }}');"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="entry-content">
-                            <div class="entry-meta">
-                                <span class="link date-links">
-                                    <a href="/artikel/{{ $artikel->id }}">{{ Carbon\Carbon::parse($a->created_at)->format('d M Y') }}</a>
-                                </span>
-                            </div>
-                            <h4 class="entry-title">
-                                <a href="/artikel/{{ $artikel->id }}" rel="bookmark">
-                                {{ $a->judul }}
-                                </a>
-                            </h4>
-                            <div class="entry-excerpt">
-                                <p>{!! \Illuminate\Support\Str::limit($artikel->keterangan, 180, '.....') !!}</p>
-                            </div>
-                            <div class="read-more">
-                                <a href="/artikel/{{ $artikel->id }}" class="color-primary">
-                                    Lanjutkan membaca...
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                @endforeach
-                        </div>
-        </div>
-        
-        
-
-    
-
                             
                         </main><!-- #main -->
                     </div><!-- .col-main -->

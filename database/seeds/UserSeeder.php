@@ -16,11 +16,7 @@ class UserSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'nomer_wa' => '08123456789',
             'password' => Hash::make('admin123'),
-            'category_id' => '1',
-            'subcategory_id' => '1',
-            'nomer_angka' => '123123123',
-            'nomer_mesin' => '121212',
-            'alamat' => 'jl malaka',
+            'jenis_mobil' => 'CRV',
             'role' => 'admin',
             'created_at' => \Carbon\Carbon::now(),
             'email_verified_at' => \Carbon\Carbon::now()
@@ -28,15 +24,11 @@ class UserSeeder extends Seeder
 
         DB::table('users')->insert([
             'name' => 'user1',
-            'email' => 'user@gmail.com',
+            'email' => 'user1@gmail.com',
             'nomer_wa' => '08123456789',
             'password' => Hash::make('user123'),
-            'category_id' => '1',
-            'subcategory_id' => '1',
-            'nomer_angka' => '123123123',
-            'nomer_mesin' => '121212',
-            'alamat' => 'jl malaka',
-            'role' => 'pending',
+            'jenis_mobil' => 'Civic',
+            'role' => 'approve',
             'created_at' => \Carbon\Carbon::now(),
             'email_verified_at' => \Carbon\Carbon::now()
         ]);
@@ -46,27 +38,19 @@ class UserSeeder extends Seeder
             'email' => 'user2@gmail.com',
             'nomer_wa' => '08123456789',
             'password' => Hash::make('user123'),
-            'category_id' => '1',
-            'subcategory_id' => '1',
-            'nomer_angka' => '123123123',
-            'nomer_mesin' => '121212',
-            'alamat' => 'jl malaka',
-            'role' => 'pending',
+            'jenis_mobil' => 'Civic',
+            'role' => 'approve',
             'created_at' => \Carbon\Carbon::now(),
             'email_verified_at' => \Carbon\Carbon::now()
         ]);
 
-        DB::table('users')->insert([
+       DB::table('users')->insert([
             'name' => 'user3',
             'email' => 'user3@gmail.com',
             'nomer_wa' => '08123456789',
             'password' => Hash::make('user123'),
-            'category_id' => '1',
-            'subcategory_id' => '1',
-            'nomer_angka' => '123123123',
-            'nomer_mesin' => '121212',
-            'alamat' => 'jl malaka',
-            'role' => 'pending',
+            'jenis_mobil' => 'Civic',
+            'role' => 'approve',
             'created_at' => \Carbon\Carbon::now(),
             'email_verified_at' => \Carbon\Carbon::now()
         ]);
@@ -76,12 +60,8 @@ class UserSeeder extends Seeder
             'email' => 'user4@gmail.com',
             'nomer_wa' => '08123456789',
             'password' => Hash::make('user123'),
-            'category_id' => '1',
-            'subcategory_id' => '1',
-            'nomer_angka' => '123123123',
-            'nomer_mesin' => '121212',
-            'alamat' => 'jl malaka',
-            'role' => 'pending',
+            'jenis_mobil' => 'Mobilio',
+            'role' => 'approve',
             'created_at' => \Carbon\Carbon::now(),
             'email_verified_at' => \Carbon\Carbon::now()
         ]);

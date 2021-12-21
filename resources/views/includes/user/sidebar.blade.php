@@ -20,20 +20,6 @@
             </div>
             <a href="profile" class="text-xl font-medium capitalize mt-4 uk-link-reset"> {{Auth::user()->name}}
             </a>
-            <div class="flex justify-around w-full items-center text-center uk-link-reset text-gray-800 mt-6">
-                <div>
-                    <a href="#">
-                        <strong>Jenis Mobil</strong>
-                        <div> {{Auth::user()->category_id}} </div>
-                    </a>
-                </div>
-                <div>
-                    <a href="#">
-                        <strong>Tipe Mobil</strong>
-                        <div> {{Auth::user()->subcategory_id}} </div>
-                    </a>
-                </div>
-            </div>
         </div>
         <hr class="-mx-4 -mt-1 uk-visible@s">
         <ul>

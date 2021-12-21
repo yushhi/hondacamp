@@ -43,26 +43,21 @@ class PostController extends Controller
         $this->validate($request, [
 			'title' => 'required',
 			'body' => 'required',
-            'profile' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
 			'file' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
 		]);
 
         // menyimpan data file yang diupload ke variabel $file
-        $profile = $request->file('profile');
 		$file = $request->file('file');
 
-        $nama_profile = time()."_".$profile->getClientOriginalName();
 		$nama_file = time()."_".$file->getClientOriginalName();
 
       	        // isi dengan nama folder tempat kemana file diupload
 		$tujuan_upload = 'images';
-        $profile->move($tujuan_upload,$nama_profile);
 		$file->move($tujuan_upload,$nama_file);
 
         Post::create([
             'title' => $request->title,
             'body' => $request->body,
-            'profile' => $nama_profile,
             'file' => $nama_file,
         ]);
 

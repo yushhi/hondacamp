@@ -57,14 +57,14 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
                 <div class="card-icon bg-warning">
-                  <i class="far fa-file"></i>
+                  <i class="fas fa-users"></i>
                 </div>
                 <div class="card-wrap">
                   <div class="card-header">
-                    <h4>Komentar</h4>
+                    <h4>Group</h4>
                   </div>
                   <div class="card-body">
-                    1,201
+                     {{ DB::table('posts')->count() }}
                   </div>
                 </div>
               </div>
@@ -72,14 +72,14 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
                 <div class="card-icon bg-success">
-                  <i class="fas fa-circle"></i>
+                  <i class="fas fa-car-side"></i>
                 </div>
                 <div class="card-wrap">
                   <div class="card-header">
-                    <h4>Online Users</h4>
+                    <h4>Jenis Mobil</h4>
                   </div>
                   <div class="card-body">
-                    47
+                    {{ DB::table('categories')->count() }}
                   </div>
                 </div>
               </div>
@@ -101,7 +101,6 @@
                         <th>Nama</th>
                         <th>Email</th>
                         <th>Created</th>
-                        <th>Status</th>
                         <th>Action</th>
                       </tr>
                       @foreach($users as $user)
@@ -110,7 +109,6 @@
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ Carbon\Carbon::parse($user->created_at)->diffForHumans() }}</td>
-                        <td>{{ $user->role }}</td>
                         <td>
                           <a href="editUser/{{ $user->id }}" class="btn btn-success">
                             <i class="fas fa-pencil-alt"></i>

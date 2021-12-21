@@ -20,11 +20,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('nomer_wa');
             $table->string('password');
-            $table->unsignedBigInteger('category_id');
-            $table->unsignedBigInteger('subcategory_id');
-            $table->string('nomer_angka');
-            $table->string('nomer_mesin');
-            $table->string('alamat');
+            $table->string('jenis_mobil');
             $table->string('avatar')->default('default-avatar.jpg');
             $table->string('coverbg')->default('cover.jpg');
             $table->string('role');

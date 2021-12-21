@@ -37,7 +37,7 @@
                     <h4>Edit Cover</h4>
                   </div>
                   <div class="card-body">
-                    <form action="/update-slider/{{$slider->id}}" method="POST" enctype="multipart/form-data">
+                    <form action="/updateSlider/{{$slider->id}}" method="POST" enctype="multipart/form-data">
                       {{-- @csrf --}}
                       {{-- @method('PATCH') --}}
                       {{ csrf_field() }}

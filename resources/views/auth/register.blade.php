@@ -11,26 +11,6 @@
 
     <div id="wrapper" class="flex flex-col justify-between h-screen">
 
-        <!-- header-->
-        <div class="bg-white py-4 shadow dark:bg-gray-800">
-            <div class="max-w-6xl mx-auto">
-
-
-                <div class="flex items-center lg:justify-between justify-around">
-
-                    <a href="trending.html">
-                        <img src="assets/images/logo.png" alt="" class="w-32">
-                    </a>
-
-                    <div class="capitalize flex font-semibold hidden lg:block my-2 space-x-3 text-center text-sm">
-                        <a style="background-color: #9b1919" href="login" class="bg-pink-500 pink-500 px-6 py-3 rounded-md shadow text-white" >Login</a>
-                        <a href="register" class="py-3 px-4">Register</a>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
         <!-- Content-->
 
         <div>
@@ -45,27 +25,21 @@
                     <input name="password_confirmation" type="password" placeholder="Confirm Password" class="bg-gray-200 mb-2 shadow-none  dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;">
                     <input name="nomer_wa" type="number" placeholder="Nomer WA" class="bg-gray-200 mb-2 shadow-none  dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;">
                     <div class="form-group">
-                        <label for="category_id">Pilih Jenis Mobil:</label>
-                        <select name="category_id" class="form-control" style="width:250px">
-                            <option value="">--- Pilih Tipe Mobil ---</option>
-                            @foreach ($jenismobils as $key => $value)
-                        <option value="{{ $key }}">{{ $value }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="subcategory_id">Pilih Tipe Mobil</label>
-                        <select name="subcategory_id" class="form-control"style="width:250px">
-                        <option>--Tipe Mobil--</option>
+                        <label for="jenis_mobil">Pilih Tipe Mobil</label>
+                        <select name="jenis_mobil" style="width:100%">
+                            <option value="CRV">CRV</option>
+                            <option value="CIVIC">CIVIC</option>
+                            <option value="Mobilio">Mobilio</option>
+                            <option value="Stream">Stream</option>
+                            <option value="Jazz">Jazz</option>
+                            <option value="Brio">Brio</option>
+                            <option value="Freed">Freed</option>
                         </select>
                     </div>
                     {{-- <input name="subcategory_id" type="text" placeholder="Tipe Mobil" class="bg-gray-200 mb-2 shadow-none  dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;"> --}}
-                    <input name="nomer_angka" type="text" placeholder="Nomer Angka" class="bg-gray-200 mb-2 shadow-none  dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;">
-                    <input name="nomer_mesin" type="text" placeholder="Nomer Mesin" class="bg-gray-200 mb-2 shadow-none  dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;">
-                    <input name="alamat" type="text" placeholder="Alamat" class="bg-gray-200 mb-2 shadow-none  dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;">
                     <button type="submit" class="bg-gradient-to-br from-pink-500 py-3 rounded-md text-white text-xl to-red-400 w-full">Daftar</button>
                     <div class="text-center mt-5 space-x-2">
-                        <p class="text-base"> Do you have an account? <a href="/login"> Login </a></p>
+                        <p class="text-base">Apakah anda sudah punya akun? <a href="/login"> Login Sekarang </a></p>
                     </div>
                 </form>
             </div>
@@ -75,12 +49,7 @@
 
         <div class="lg:mb-5 py-3 uk-link-reset">
             <div class="flex flex-col items-center justify-between lg:flex-row max-w-6xl mx-auto lg:space-y-0 space-y-3">
-                <div class="flex space-x-2 text-gray-700 uppercase">
-                    <a href="#"> About</a>
-                    <a href="#"> Help</a>
-                    <a href="#"> Terms</a>
-                    <a href="#"> Privacy</a>
-                </div>
+                
                 <p class="capitalize"> © copyright 2021 by Muslim Go Online</p>
             </div>
         </div>

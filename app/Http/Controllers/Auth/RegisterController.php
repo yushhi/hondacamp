@@ -84,11 +84,7 @@ class RegisterController extends Controller
             'avatar' => ['sometimes', 'image', 'mimes:jpg,jpeg,bmp,svg,png','max:5000'],
             'nomer_wa' => ['required'],
             'password' => ['required', 'string', 'min:4', 'confirmed'],
-            'category_id' => ['required'],
-            'subcategory_id' => ['required'],
-            'nomer_angka' => ['required'],
-            'nomer_mesin' => ['required'],
-            'alamat' => ['required'],
+            'jenis_mobil' => ['required'],
         ]);
     }
 
@@ -114,12 +110,8 @@ class RegisterController extends Controller
                 'avatar' => '/images/' . $avatarname,
                 'nomer_wa' => $data['nomer_wa'],
                 'password' => Hash::make($data['password']),
-                'category_id' => $data['category_id'],
-                'subcategory_id' => $data['subcategory_id'],
-                'nomer_angka' => $data['nomer_angka'],
-                'nomer_mesin' => $data['nomer_mesin'],
-                'alamat' => $data['alamat'],
-                'role' => 'pending'
+                'jenis_mobil' => $data['jenis_mobil'],
+                'role' => 'approve'
             ]);
         }
         return User::create([
@@ -127,12 +119,8 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'nomer_wa' => $data['nomer_wa'],
             'password' => Hash::make($data['password']),
-            'category_id' => $data['category_id'],
-            'subcategory_id' => $data['subcategory_id'],
-            'nomer_angka' => $data['nomer_angka'],
-            'nomer_mesin' => $data['nomer_mesin'],
-            'alamat' => $data['alamat'],
-            'role' => 'pending'
+            'jenis_mobil' => $data['jenis_mobil'],
+            'role' => 'approve'
         ]);
 
         return view('auth.register')->with('categories', $categories);

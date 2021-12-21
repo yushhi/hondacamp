@@ -43,7 +43,14 @@
                     <li><a href="/dashboard"> Dashboard </a> </li>
                     @endif
                     <li><a href="/profile"> Profile </a></li>
-                    <li><a href="#"> Log Out</a></li>
+                    <li>
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> 
+                            Log Out
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                @csrf
+                            </form>
+                        </a>
+                    </li>
                 </ul>
             </div>
 

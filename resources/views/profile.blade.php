@@ -43,9 +43,8 @@
 
                             
                             <div class="capitalize flex font-semibold space-x-3 text-center text-sm my-2">
-                                <a href="#" class="bg-gray-300 shadow-sm p-2 px-6 rounded-md dark:bg-gray-700"> Jenis Mobil</a>
-                                <a href="#" class="bg-pink-500 shadow-sm p-2 pink-500 px-6 rounded-md text-white hover:text-white hover:bg-pink-600"> Tipe Mobil</a>
-                                <div>
+                                {{-- <a href="#" class="bg-gray-300 shadow-sm p-2 px-6 rounded-md dark:bg-gray-700"> Jenis Mobil</a>
+                                <a href="#" class="bg-pink-500 shadow-sm p-2 pink-500 px-6 rounded-md text-white hover:text-white hover:bg-pink-600"> Tipe Mobil</a> --}}
                                     
                                 <div class="bg-white w-56 shadow-md mx-auto p-2 mt-12 rounded-md text-gray-500 hidden text-base dark:bg-gray-900" uk-drop="mode: click">
                               
@@ -77,13 +76,12 @@
                               
                                 </div>
 
-                                </div>
 
                             </div>
 
                             <div class="divide-gray-300 divide-transparent divide-x grid grid-cols-2 lg:text-left lg:text-lg mt-3 text-center w-full dark:text-gray-100">
-                                <div class="flex lg:flex-row flex-col"> Nomer Angka <strong class="lg:pl-2">{{Auth::user()->nomer_angka}}</strong></div>
-                                <div class="lg:pl-4 flex lg:flex-row flex-col"> Nomer Mesin <strong class="lg:pl-2">{{Auth::user()->nomer_mesin}}</strong></div>
+                                <div class="flex lg:flex-row flex-col"> Jenis Mobil <strong class="lg:pl-2">{{Auth::user()->jenis_mobil}}</strong></div>
+                                {{-- <div class="lg:pl-4 flex lg:flex-row flex-col"> Nomer Mesin <strong class="lg:pl-2">{{Auth::user()->nomer_mesin}}</strong></div> --}}
                             </div>
                             
                     </div>
@@ -122,18 +120,18 @@
                                             <label for=""> Nomer WA (Aktif)</label>
                                             <input name="nomer_wa" type="number" value="{{ old('nomer_wa', auth()->user()->nomer_wa) }}" class="shadow-none bg-gray-100">
                                         </div>
-                                        <div>
-                                            <label for=""> Nomer Angka </label>
-                                            <input name="nomer_angka" type="text" value="{{ old('nomer_angka', auth()->user()->nomer_angka) }}" class="shadow-none bg-gray-100">
-                                        </div> 
-                                        <div>
-                                            <label for=""> Nomer Mesin</label>
-                                            <input name="nomer_mesin" type="text" value="{{ old('nomer_mesin', auth()->user()->nomer_mesin) }}" class="shadow-none bg-gray-100">
-                                        </div> 
-                                        <div class="col-span-2">
-                                            <label for="alamat">Alamat</label>  
-                                            <input name="alamat" type="text" value="{{ old('alamat', auth()->user()->alamat) }}" class="shadow-none bg-gray-100">
-                                        </div> 
+                                         <div class="col-span-2">
+                                            <label for="jenis_mobil">Pilih Tipe Mobil</label>
+                                            <select name="jenis_mobil" class="shadow-none bg-gray-100">
+                                                <option value="CRV">CRV</option>
+                                                <option value="Civic">Civic</option>
+                                                <option value="Mobilio">Mobilio</option>
+                                                <option value="Stream">Stream</option>
+                                                <option value="Jazz">Jazz</option>
+                                                <option value="Brio">Brio</option>
+                                                <option value="Freed">Freed</option>
+                                            </select>
+                                        </div>
 
                                 </div> 
                                     <div class="bg-gray-10 p-6 pt-0 flex justify-end space-x-3">

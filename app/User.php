@@ -29,11 +29,7 @@ class User extends Authenticatable
         'email',
         'nomer_wa',
         'password',
-        'category_id',
-        'subcategory_id',
-        'nomer_angka',
-        'nomer_mesin',
-        'alamat',
+        'jenis_mobil',
         'avatar',
         'coverbg',
         'role'
