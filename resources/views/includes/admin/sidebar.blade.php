@@ -51,20 +51,6 @@
               <span>Slider</span>
             </a>
           </li>
-
-          <li>
-            <a class="nav-link" href="{{ route('subcategory.create') }}">
-             <i class="fas fa-car-side"></i>
-              <span>Tambah Type</span>
-            </a>
-          </li> 
-
-          <li>
-            <a class="nav-link" href="{{ route('category.index') }}">
-              <i class="far fa-clone"></i> 
-              <span>Category</span>
-            </a>
-          </li>
           
          
         </ul>
